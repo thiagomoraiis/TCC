@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'bootstrap5'
+    'bootstrap5',
 
+    'core',
     'student',
     'city',
     'contact',
