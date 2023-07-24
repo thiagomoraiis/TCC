@@ -1,0 +1,26 @@
+{% load static %}
+<form action="" method="post" class="p-3 mb-5 mt-4 col-11 col-md-8 col-lg-6 col-xl-4 shadow-lg rounded-4">{% csrf_token %}
+    <div class="">
+        <div class="row">
+            <div class="col-6 mb-2">
+                <label class="form-label" for="name">Nome</label>
+                <input class="d-block form-control" id="name" type="text">
+            </div>
+            <div class="col-6">
+                <label class="form-label" for="email">Email</label>
+                <input class="d-block form-control" id="email" type="text">
+            </div>
+        </div>
+        <div class="w-100 mb-2">
+            <label class="form-label" for="assunto">Assunto</label>
+            <input class="d-block w-100 form-control" id="assunto" type="text">
+        </div>
+        <div class="mb-4">
+            <label class="form-label" for="message">Mensagem</label>
+            <textarea class="d-block w-100 form-control" name="" id="message" cols="30" rows="10"></textarea>
+        </div>
+        <div class="mb-2 d-flex justify-content-end">
+            <button type="submit" class="btn btn-success btn-color-main ms-auto">Enviar</button>
+        </div>
+    </div>
+</form>
