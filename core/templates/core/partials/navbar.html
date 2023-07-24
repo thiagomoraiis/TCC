@@ -1,0 +1,34 @@
+{% load static %}
+{% load bootstrap5 %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #00B071;">
+    <div class="container-fluid mx-md-3 mx-xl-4">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'core/img/IFO-LOGO.svg' %}" style="width: 4rem;" alt="">
+      </a>
+      <button class="navbar-toggler text-white border-light border-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="navbar-toggler-icon" style="color: white;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white active fw-bold" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white active fw-bold" aria-current="page" href="#">Apresentação</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white active fw-bold" aria-current="page" >Sobre nós</a>
+            </li>
+            {% if request.user.is_authenticated %}
+                {% if user.image %}
+                    <img src="{{ students.image.url }}" alt="">
+                {% else %}
+                    <i class="bi bi-person text-white"></i>
+                {% endif %}
+            {% else %}
+                <a href="" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
+            {% endif %}
+          </ul>
+      </div>
+    </div>
+</nav>
