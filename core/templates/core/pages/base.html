@@ -15,36 +15,48 @@
 </head>
 <body>
     <div class="body-content">
-        <header class="" style="background: #00B071; height: 85px;">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <div class="d-flex justify-content-around">
+        <nav class="navbar navbar-expand-md" style="background-color: #00B071;">
+            <a href="" class="navbar-brand fs-3 ms-3">
+                <img src="{% static 'core/img/IFO-LOGO.svg' %}" style="height:4rem;" alt="">
+            </a>
+
+            <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#btn" id="btn">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="btn">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-3"><a href="" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item mx-3"><a href="" class="nav-link text-white">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--           <nav class="navbar container bg-body-tertiary">
+                <div class="row justify-content-around">
+                    <div class="col-4">
                         <a class="navbar-brand" href="">
                             <img src="{% static 'core/img/IFO-LOGO.svg' %}" alt="">
                         </a>
-                        <div class="d-flex justify-content-around">
-                            <button class="navbar-toggler" style="margin-right: auto;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon" style="color: white;"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="margin-right: auto;">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="#">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link disabled text-white">Disabled</a>
-                                    </li>
-                                </ul>
-                                <a href="#" class="btn btn-success text-white">Login</a>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled text-white">Disabled</a>
+                            </li>
+    
+                            <a href="#" class="btn btn-success text-white">Login</a>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-        </header>
+        </nav>-->
+    </header>
     
         <main class="">
 
