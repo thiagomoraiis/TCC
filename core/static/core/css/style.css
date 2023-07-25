@@ -105,3 +105,26 @@ nav{
 .col1{
     margin-right: 2rem;
 }
+.link-facebook{
+    color: #fff;
+    background-color: #3b5998;
+}
+.link-twitter{
+    color: #fff;
+    background-color: #55acee;
+}
+.link-github{
+    color: #fff; 
+    background-color: #444;
+}
+.link-instagram{
+    color: #fff; 
+    background-color: #3f729b;
+}
+.main-form-login > form div{
+    padding: 0;
+}
+main.container-fluid{
+    height: 100vh;
+    width: 100vw;
+}
