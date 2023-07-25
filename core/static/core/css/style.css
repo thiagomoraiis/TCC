@@ -124,7 +124,7 @@ nav{
 .main-form-login > form div{
     padding: 0;
 }
-main.container-fluid{
+/*main.container-fluid:not(footer.container-fluid){
     height: 100vh;
     width: 100vw;
 }
