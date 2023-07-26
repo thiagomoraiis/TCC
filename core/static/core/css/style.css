@@ -4,6 +4,9 @@
 body{
     background-color: #F4F6F9;
 }
+.bg-color{
+    background-color: #F4F6F9;
+}
 .fw-400{
     font-weight: 400;
 }
@@ -124,7 +127,35 @@ nav{
 .main-form-login > form div{
     padding: 0;
 }
-/*main.container-fluid:not(footer.container-fluid){
-    height: 100vh;
-    width: 100vw;
+.principal-form{
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}    
+@media only screen and (min-width:300px){
+    .seila{
+        width: 75%;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width:768px){
+    .seila{
+        width: 50%;
+    }
+}
+@media only screen and (min-width:992px){
+    .seila{
+        width: 30%;
+    }
+}
+
+@media only screen and (min-width:992px){
+    .seila{
+        width: 20%;
+    }
+}
+.seila input{
+    height: 40px;
 }
