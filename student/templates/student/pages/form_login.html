@@ -1,15 +1,15 @@
-{% load static %}
 {% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">  
 {% include 'core/partials/head.html' %}
 <body>
-    <main class="principal-form">
+    <main class="principal-form bg-light">
         <div class="seila">
-            <form action="" class="w-100 ">
+            <form action="" class="w-100 bg-light">
                 <div class="mb-3 d-flex flex-column">
                     <img src="{% static 'core/img/IFO-LOGO-LOGIN.svg' %}" class="m-auto py-2" style="width: 6rem; height: auto; margin: auto;" alt="">
-                    <h1 class="h2 text-color-main fw-700 text-center">IFÓRUM<br>ACADEMICO </h1>
+                    <h1 class="h3 text-color-main fw-700 text-center">IFÓRUM<br>ACADEMICO </h1>
                 </div>
                 <div class="mb-3">
                     <label for="form-label">Nome de Usuario:</label>
@@ -25,26 +25,5 @@
             </form>
         </div>
     </main>
-    <!--<main class="container-fluid d-flex align-items-center justify-content-center bg-light" style="height: 100vh;width: 100vw;">
-        <div class="justify-content-center align-items-center row w-50 my-5">
-            <form action="" method="post" class="p-0 col-12 w-100 bg-color rounded-4">
-                <div class="p-0 mb-3 d-flex justify-content-center form-group flex-column-reverse px-3">
-                    <h1 class="h2 text-color-main fw-700 text-center">IFORUM <br>ACADEMICO</h1>
-                    <img src="{% static 'core/img/IFO-LOGO-LOGIN.svg' %}" class="m-auto py-2" style="width: 6rem; height: auto; margin: auto;" alt="">
-                </div>
-                <div class="p-0 mb-3 form-group px-3">
-                    <label for="">Nome de usuario</label>
-                    <input class="form-control" style="height: 40px;" type="text">
-                </div>
-                <div class="p-0 mb-3 form-group px-3">
-                    <label for="">Senha</label>
-                    <input class="form-control" style="height: 40px;" type="password">
-                </div>
-                <div class="p-0 mb-3 d-flex form-group justify-content-end px-3">
-                    <button type="submit" class="btn btn-success btn-color-main text-white fw-700">Entrar</button>
-                </div>
-            </form>
-        </div>
-    </main>-->
 </body>
 </html>

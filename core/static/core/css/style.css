@@ -150,10 +150,9 @@ nav{
         width: 30%;
     }
 }
-
-@media only screen and (min-width:992px){
+@media only screen and (min-width:1200px){
     .seila{
-        width: 20%;
+        width: 50%;
     }
 }
 .seila input{
