@@ -2,66 +2,87 @@
 {% load static %}
 {% load bootstrap5 %}
 {% block content %}
-<section class="container-fluid">
-    <div class="row justify-content-around m-0 p-0">
-        <h1 class="h2 text-color fw-800" style="color: #6C757D;">Home</h1>
-        <div class="col-8 col-md-2 bg-danger col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3">
+<section class="container-fluid bg-white">
+    <div class="row justify-content-around m-0 pt-5">
+        <h1 class="h2 text-color fw-800 ps-5 my-4" style="color: #6C757D;">Home</h1>
+        <div class="col-8 col-sm-3 col-md-3 col-lg-2 bg-danger col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3 shadow">
             <h3 class="text-white fw-700 fs-3">Horarios</h3>
         </div>
-        <div class="col-8 col-md-2 bg-primary col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3">
+        <div class="col-8 col-sm-3 col-md-3 col-lg-2 bg-primary col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3 shadow">
             <h3 class="text-white fw-700 fs-3">Dicas</h3>
         </div>
-        <div class="col-8 col-md-2 bg-success col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3">
+        <div class="col-8 col-sm-3 col-md-3 col-lg-2 bg-success col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3 shadow">
             <h3 class="text-white fw-700 fs-3">Contatos</h3>
         </div>
     </div>
 
     <div class="row justify-content-around m-0 p-0">
-        <h2 class="fs-4 text-color-default fw-700" style="color: #6C757D;">Noticias</h2>
-        <div class="col-10 col-md-7 bg-color-default">
-            <div class="my-card p-2">
-                <div class="d-flex align-items-start">
-                    <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-4 img-card-round" style="width: 9.90rem; height: 6.75rem;" alt="">
-                    <div class="ms-4" style="flex: 1;">
-                        <span>lorem</span>
-                        <h4>Lorem Ipsum</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptate alias mollitia neque, sapiente, natus facere atque ratione veniam tenetur, quia harum necessitatibus suscipit rem dolor repellendus! Nemo, natus voluptatibus?</p>
-                    </div>
-                </div>
+        <h2 class="fs-4 h2 text-color-default fw-700 ps-5 my-4" style="color: #6C757D;">Noticias</h2>
+        <div class="col-11 col-md-8 bg-color-default h-100 mb-5 mb-lg-0">
+            
+            <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
+                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
+                <div class="ms-3 p-3" style="flex: 1;">
+                    <span>lorem</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                </div>                
             </div>
-            <div class="my-card p-2">
-                <div class="d-flex align-items-start">
-                    <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-4 img-card-round" style="width: 9.90rem; height: 6.75rem;" alt="">
-                    <div class="ms-4" style="flex: 1;">
-                        <span>lorem</span>
-                        <h4>Lorem Ipsum</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptate alias mollitia neque, sapiente, natus facere atque ratione veniam tenetur, quia harum necessitatibus suscipit rem dolor repellendus! Nemo, natus voluptatibus?</p>
-                    </div>
-                </div>
+            <div class="my-card card-round border d-flex mb-4 shadow-sm">
+                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
+                <div class="ms-3 p-3" style="flex: 1;">
+                    <span>lorem</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                </div>                
             </div>
-            <div class="my-card p-2">
-                <div class="d-flex align-items-start">
-                    <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-4 img-card-round" style="width: 9.90rem; height: 6.75rem;" alt="">
-                    <div class="ms-4" style="flex: 1;">
-                        <span>lorem</span>
-                        <h4>Lorem Ipsum</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptate alias mollitia neque, sapiente, natus facere atque ratione veniam tenetur, quia harum necessitatibus suscipit rem dolor repellendus! Nemo, natus voluptatibus?</p>
-                    </div>
-                </div>
+            <div class="my-card card-round border d-flex mb-4 shadow-sm">
+                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
+                <div class="ms-3 p-3" style="flex: 1;">
+                    <span>lorem</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                </div>                
             </div>
-            <div class="my-card p-2">
-                <div class="">
-                    <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-4 img-card-round" style="width: 9.90rem; height: 6.75rem;" alt="">
-                    <div class="ms-4" style="flex: 1;">
-                        <span>lorem</span>
-                        <h4>Lorem Ipsum</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptate alias mollitia neque, sapiente, natus facere atque ratione veniam tenetur, quia harum necessitatibus suscipit rem dolor repellendus! Nemo, natus voluptatibus?</p>
-                    </div>
-                </div>
+            <div class="my-card card-round border d-flex shadow-sm">
+                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
+                <div class="ms-3 p-3" style="flex: 1;">
+                    <span>lorem</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                </div>                
             </div>
         </div>
-        <div class="col-10 col-md-3 bg-primary">
-            resto
+
+        <div class="col-10 col-md-3">
+            <div class="card-round border mb-3 mb-lg-5 card-round" style="height: 318px;">oi</div>
+
+            <div class="bg-primary border mb-3 mt-4 mt-lg-5 card-round text-white d-flex justify-content-around align-items-center" style="height: 80px;">
+                <a href="#" class="text-white nav-link">
+                    <h3 class="fw-700 fs-3 m-0" style="font-size: 1.5rem;">Adicionar</h3>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-plus fw-bold" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+            </div>
+
+            <div class="bg-success border mb-3 card-round text-white d-flex justify-content-around align-items-center" style="height: 80px;">
+                <a href="#" class="text-white nav-link">
+                    <h3 class="fw-700 fs-3 m-0" style="font-size: 1.5rem;">Adicionar</h3>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-plus fw-bold" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+            </div>
+
+            <div class="bg-danger border mb-5 card-round text-white d-flex justify-content-around align-items-center" style="height: 80px;">
+                <a href="#" class="text-white nav-link">
+                    <h3 class="fw-700 fs-3 m-0" style="font-size: 1.5rem;">Adicionar</h3>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+            </div>
         </div>
     </div>
 </section>

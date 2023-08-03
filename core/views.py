@@ -9,3 +9,6 @@ def presentation(request):
 
 def login(request):
     return render(request, 'student/pages/form_login.html')
+
+def detail_news(request):
+    return render(request, 'core/pages/detail_news.html')
