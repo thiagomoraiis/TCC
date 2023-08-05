@@ -86,10 +86,10 @@ textarea{
     color: #fff !important;
     border: none;
 }
-.form-control, .form-control:focus{
+.form-control, .form-control:focus, .number1{
     border-color: #00b374;
 }
-.form-control:focus{
+.form-control:focus, .number1:focus{
     box-shadow: 0 0 0 0.25rem rgba(160, 237, 210, 0.75);
 }
 nav{
@@ -171,4 +171,13 @@ nav{
 }
 .card-body .text-content-grey, .card-text {
     color: #999 !important;
+}
+#number1, #number1{
+    width: 3.5rem !important;
+}
+.number1, .number1{
+    width:3.8rem; height: 3rem !important;
+}
+input[type="number"]{
+    width:3.8rem; height: 3rem !important;
 }
