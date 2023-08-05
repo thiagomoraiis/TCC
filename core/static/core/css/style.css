@@ -83,6 +83,7 @@ textarea{
 }
 .btn-color-main{
     background-color: #00B071;
+    color: #fff !important;
     border: none;
 }
 .form-control, .form-control:focus{
@@ -94,7 +95,13 @@ textarea{
 nav{
     border-bottom: 1px solid #F4F6F9;
 }
-.h1{
+.h1-sm{
+    font-size: 1rem;
+}
+.h1-md{
+    font-size: 2.5rem;
+}
+.h1-lg{
     font-size: 4rem;
 }
 .h2{
@@ -104,7 +111,7 @@ nav{
     font-size: 1.5rem;
 }
 .text-default{
-    color: #535353;
+    color: #6C757D;
 }
 .objective{
     background-color: #fff;
@@ -161,4 +168,7 @@ nav{
 }
 .seila input{
     height: 40px;
+}
+.card-body .text-content-grey, .card-text {
+    color: #999 !important;
 }
