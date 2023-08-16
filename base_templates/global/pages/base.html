@@ -1,0 +1,21 @@
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'global/partials/head.html' %}
+<body>
+    <div class="body-content">
+
+        {% include 'global/partials/navbar.html' %}
+    
+        <main class="w-100">
+            {% block content %}
+            {% endblock %}
+        </main>
+        {% include 'global/partials/footer.html' %}
+
+    </div>
+
+    {% bootstrap_javascript %}
+</body>
+</html>

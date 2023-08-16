@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import login, index, presentation, detail_news, register, simulator
+from .views import (login, index, presentation,
+                    detail_news, register, simulator,
+                    create_post)
 
 app_name = 'core'
 
@@ -10,4 +12,5 @@ urlpatterns = [
     path('detail/', detail_news, name="detail"),
     path('register/', register, name="register"),
     path('simulator/', simulator, name="simulator"),
+    path('create-post/', create_post)
 ]

@@ -23,3 +23,7 @@ def register(request):
 
 def simulator(request):
     return render(request, 'core/pages/simulator.html')
+
+
+def create_post(request):
+    return render(request, 'core/pages/create_post.html')
