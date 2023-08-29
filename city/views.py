@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def list_city(request):
+    return render(request, 'city/pages/list_city.html')

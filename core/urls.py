@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from .views import (login, index, presentation,
                     detail_news, register, simulator,
                     create_post)
@@ -12,5 +12,6 @@ urlpatterns = [
     path('detail/', detail_news, name="detail"),
     path('register/', register, name="register"),
     path('simulator/', simulator, name="simulator"),
-    path('create-post/', create_post)
+    path('create-post/', create_post),
+    path('city/', include('city.urls'))
 ]
