@@ -27,3 +27,7 @@ def simulator(request):
 
 def create_post(request):
     return render(request, 'core/pages/create_post.html')
+
+
+def about(request):
+    return render(request, 'core/pages/about.html')

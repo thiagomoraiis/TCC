@@ -1,7 +1,7 @@
-from django.urls import include, path
+from django.urls import path
 from .views import (login, index, presentation,
                     detail_news, register, simulator,
-                    create_post)
+                    create_post, about)
 
 app_name = 'core'
 
@@ -13,5 +13,5 @@ urlpatterns = [
     path('register/', register, name="register"),
     path('simulator/', simulator, name="simulator"),
     path('create-post/', create_post),
-    path('city/', include('city.urls'))
+    path('about/', about, name='about')
 ]
