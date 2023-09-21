@@ -7,14 +7,16 @@
     <h1 class="mt-5 mb-4" style="color: #6C757D;" >Contatos</h1>
     <div class="row">
         <div class="col-10 col-lg-5">
-            <div class="card mt-3">
-                <div class="card-body p-3 d-flex ">
+            <div class="card mt-3 w-100">
+                <div class="card-body p-3 d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#6C757D" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                       </svg>
                     <div class="ms-3">
-                        <h4 class="m-0" style="color: #6C757D;" >COADES</h4>
-                        <span>Sala 05</span>
+                        <button type="button" class="btn d-flex flex-column ps-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <h4 class="m-0 text-secondary">Coades</h4>
+                            <span class="" >Sala 05</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -53,5 +55,22 @@
             </div>
         </div>
     </div>
-</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>-->
+      </div>
+    </div>
+  </div>
 {% endblock %}

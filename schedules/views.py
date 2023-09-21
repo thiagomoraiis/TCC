@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def lista_horario(request):
+    return render(request, '')
