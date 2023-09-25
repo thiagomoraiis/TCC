@@ -12,6 +12,8 @@ class Perfil(models.Model):
     cidade = models.ForeignKey(
         Cidade, on_delete=models.CASCADE
     )
+    bio = models.TextField()
+    foto = models.ImageField()
 
     def __str__(self):
         return self.usuario
