@@ -12,6 +12,7 @@ class Categoria(models.Model):
 class Dica(models.Model):
     titulo = models.CharField(max_length=150)
     descricao = models.TextField()
+    conteudo = models.TextField()
     postado_em = models.DateTimeField(auto_now_add=True)
     categoria = models.ForeignKey(
         Categoria, on_delete=models.SET_NULL, null=True
