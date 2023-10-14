@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Cidade
+from .models import City
 
 
-@admin.register(Cidade)
-class CidadeAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'onibus_dispo', 'postado_por')
+@admin.register(City)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'bus_dispo', 'posted_by')

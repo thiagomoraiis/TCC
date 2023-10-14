@@ -1,16 +1,16 @@
 from django.contrib import admin
-from .models import Dica, Categoria
+from .models import Tip, Category
 
 
-@admin.register(Categoria)
-class CategoriaAdmin(admin.ModelAdmin):
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
     list_display = [
-        'nome',
+        'name',
     ]
 
 
-@admin.register(Dica)
-class DicaAdmin(admin.ModelAdmin):
+@admin.register(Tip)
+class TipAdmin(admin.ModelAdmin):
     list_display = [
-        'titulo', 'postado_em', 'postado_por'
+        'title', 'posted_in', 'posted_by'
     ]

@@ -1,24 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
-from city.models import Cidade
+from city.models import City
 
 
-class RotaOnibus(models.Model):
-    TURNO_CHOICES = (
+class BusRoute(models.Model):
+    SHIFTS_CHOICES = (
         ('matutino', 'Matutino'),
         ('vespertino', 'Vespertino'),
         ('noturno', 'Noturno')
     )
-    origem = models.ForeignKey(
-        Cidade, on_delete=models.CASCADE
+    origin = models.ForeignKey(
+        City, on_delete=models.CASCADE
     )
-    destino = models.ForeignKey(Cidade, on_delete=models.CASCADE)
-    turno = models.CharField(
-        choices=TURNO_CHOICES, max_length=12
+    destiny = models.ForeignKey(City, on_delete=models.CASCADE)
+    shift = models.CharField(
+        choices=SHIFTS_CHOICES, max_length=12
     )
-    horario_chegada = models.CharField(max_length=100)
-    horario_saida = models.CharField(max_length=100)
-    postado_por = models.ForeignKey(
+    arrival_time = models.CharField(max_length=100)
+    departure_time = models.CharField(max_length=100)
+    posted_by = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
 

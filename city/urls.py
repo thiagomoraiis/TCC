@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import list_city, detalhe_cidade
+from .views import city_list, city_detail
 
 app_name = 'city'
 
 urlpatterns = [
-    path('list/', list_city, name='list_city'),
-    path('detalhe-cidade/', detalhe_cidade, name='detalhe-cidade')
+    path('', city_list, name='city_list'),
+    path('detalhe-cidade/', city_detail, name='city_detail')
 ]

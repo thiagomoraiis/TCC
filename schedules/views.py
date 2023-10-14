@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
 
-def lista_horario(request):
+def schedules_list(request):
+    return render(request, '')
+
+
+def schedules_detail(request):
     return render(request, '')

@@ -23,4 +23,6 @@ urlpatterns = [
     path('contatos/', include('contact.urls')),
     path('cidades/', include('city.urls')),
     path('dicas/', include('tip.urls')),
+    path('user/', include('user.urls')),
+    path('horarios/', include('schedules.urls')),
 ]

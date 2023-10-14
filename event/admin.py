@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Evento
+from .models import Event
 
 
-@admin.register(Evento)
-class EventoAdmin(admin.ModelAdmin):
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
     list_display = [
-        'titulo', 'data', 'local'
+        'title', 'date', 'local'
     ]

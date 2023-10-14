@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def list_city(request):
-    return render(request, 'city/pages/list_city.html')
+def city_list(request):
+    return render(request, 'city/pages/city_list.html')
 
 
-def detalhe_cidade(request):
-    return render(request, 'city/pages/detalhe_cidade.html')
+def city_detail(request):
+    return render(request, 'city/pages/city_detail.html')

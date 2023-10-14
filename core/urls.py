@@ -1,17 +1,14 @@
 from django.urls import path
-from .views import (login, index, presentation,
-                    detail_news, register, simulator,
-                    create_post, about)
+from .views import (index, presentation,
+                    simulator, about)
 
 app_name = 'core'
 
 urlpatterns = [
     path('', index, name="index"),
     path('presentation', presentation, name='presentation'),
-    path('login/', login, name="login"),
-    path('detail/', detail_news, name="detail"),
-    path('register/', register, name="register"),
+    # path('post/detalhe/', detail_news, name="detail"),
     path('simulator/', simulator, name="simulator"),
-    path('create-post/', create_post),
-    path('about/', about, name='about')
+    # path('post/criar', create_post),
+    path('sobre/', about, name='about')
 ]

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def list_dicas(request):
-    return render(request, 'tip/pages/list_dicas.html')
+def tips_list(request):
+    return render(request, 'tip/pages/tips_list.html')
 
 
-def detalhe_dicas(request):
-    return render(request, 'tip/pages/detalhe_dicas.html')
+def tips_detail(request):
+    return render(request, 'tip/pages/tips_detail.html')
