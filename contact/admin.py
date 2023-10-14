@@ -5,6 +5,6 @@ from .models import Contact
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = [
-        'sector', 'telefone', 'coordinator',
+        'sector', 'telephone', 'coordinator',
         'email', 'posted_by'
     ]
