@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def schedules_list(request):
-    return render(request, '')
+class ScheduleListView(TemplateView):
+    template_name = ''
 
 
-def schedules_detail(request):
-    return render(request, '')
+class ScheduleDetailView(TemplateView):
+    template_name = ''

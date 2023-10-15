@@ -1,5 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def contact_list(request):
-    return render(request, 'contact/pages/contacts_list.html')
+class ContactListView(TemplateView):
+    template_name = 'contact/pages/contacts_list.html'

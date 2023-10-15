@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def city_list(request):
-    return render(request, 'city/pages/city_list.html')
+class CityListView(TemplateView):  # trocar para ListView
+    template_name = 'city/pages/city_list.html'
 
 
-def city_detail(request):
-    return render(request, 'city/pages/city_detail.html')
+class CityDetailView(TemplateView):  # trocar para DetailView
+    template_name = 'city/pages/city_detail.html'

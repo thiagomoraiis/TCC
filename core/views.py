@@ -1,25 +1,25 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def index(request):
-    return render(request, 'core/pages/index.html')
+class IndexListView(TemplateView):  # trocar para ListView
+    template_name = 'core/pages/index.html'
 
 
-def presentation(request):
-    return render(request, 'core/pages/presentation.html')
+class PresentationTemplateView(TemplateView):
+    template_name = 'core/pages/presentation.html'
 
 
-def simulator(request):
-    return render(request, 'core/pages/simulator.html')
+class SimulatorTemplateView(TemplateView):
+    template_name = 'core/pages/simulator.html'
 
 
-def about(request):
-    return render(request, 'core/pages/about.html')
+class AboutTemplateView(TemplateView):
+    template_name = 'core/pages/about.html'
 
 
-def create_post(request):
-    return render(request, 'core/pages/create_post.html')
+class CreatePost(TemplateView):
+    template_name = 'core/pages/create_post.html'
 
 
-def detail_news(request):
-    return render(request, 'core/pages/detail_news.html')
+class DetailPost(TemplateView):
+    template_name = 'core/pages/detail_news.html'

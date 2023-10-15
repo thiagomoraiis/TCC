@@ -21,9 +21,9 @@ class UserModelForm(forms.ModelForm):
             'email', 'password'
         ]
 
-        def __init__(self):
-            for field, field_name in self.fields.values():
-                field.widget.attrs['class'] = 'form-control'
+    def __init__(self):
+        for field_name, field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
         attrs={'class': 'form-control'}

@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def tips_list(request):
-    return render(request, 'tip/pages/tips_list.html')
+class TipsListView(TemplateView):
+    template_name = 'tip/pages/tips_list.html'
 
 
-def tips_detail(request):
-    return render(request, 'tip/pages/tips_detail.html')
+class TipsDetailView(TemplateView):
+    template_name = 'tip/pages/tips_detail.html'
