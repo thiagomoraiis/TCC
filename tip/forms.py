@@ -1,12 +1,29 @@
 from django import forms
 from .models import Tip
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 class TipsModelForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget(), required=False)
+
     class Meta:
         model = Tip
         fields = [
             'title', 'description', 'content',
-            'category', 'posted_by',
-            'posted_at', 'updated_at', 'tip_about',
+            'category', 'posted_by', 'tip_about',
         ]
+        widgets = {
+            'title': forms.TextInput(
+                attrs={'class': 'form-control'}
+            ),
+            'description': forms.TextInput(
+                attrs={'class': 'form-control'}
+            ),
+            'category': forms.Select(
+                attrs={'class': 'form-control selectric'}
+            ),
+            'content': CKEditorUploadingWidget(),
+            'tip_about': forms.TextInput(
+                attrs={'class': 'form-control'}
+            ),
+        }

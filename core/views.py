@@ -1,4 +1,7 @@
-from django.views.generic import TemplateView
+from django.views.generic import (TemplateView, CreateView)
+from tip.forms import TipsModelForm
+from django.urls import reverse_lazy
+from tip.models import Tip
 
 
 class IndexListView(TemplateView):  # trocar para ListView
@@ -17,8 +20,12 @@ class AboutTemplateView(TemplateView):
     template_name = 'core/pages/about.html'
 
 
-class CreatePost(TemplateView):
+class CreatePost(CreateView):
     template_name = 'core/pages/create_post.html'
+    form_class = TipsModelForm
+    context_object_name = 'form'
+    model = Tip
+    success_url = reverse_lazy('core:index')
 
 
 class DetailPost(TemplateView):

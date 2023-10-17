@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
     'bootstrap5',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'core',
     'city',
@@ -69,7 +70,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'base_templates'],
+        'DIRS': [ BASE_DIR / 'base_templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,3 +150,28 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SENHA = os.environ.get('SENHA')
+
+AWS_QUERYSTRING_AUTH = False
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+# CKEDITOR_RESTRICT_BY_USER = True
+
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+CKEDITOR_FILENAME_GENERATOR = 'core.utils.get_filename'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_RESTRICT_BY_DATE = True
+
+CKEDITOR_FORCE_JPEG_COMPRESSION = True
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'removePlugins': 'stylesheetparser',
+        'toolbar': 'full',
+        'image_previewText': '',
+    },
+
+}

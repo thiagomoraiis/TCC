@@ -11,13 +11,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white active fw-bold" aria-current="page" href="#">Home</a>
+              <a class="nav-link text-white active fw-bold" aria-current="page" href="{% url 'core:index' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white active fw-bold" aria-current="page" href="#">Apresentação</a>
+              <a class="nav-link text-white active fw-bold" aria-current="page" href="{% url 'core:presentation' %}">Apresentação</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white active fw-bold" aria-current="page" >Sobre nós</a>
+              <a class="nav-link text-white active fw-bold" aria-current="page" href="{% url 'core:about' %}" >Sobre nós</a>
             </li>
             {% if request.user.is_authenticated %}
                 {% if user.image %}

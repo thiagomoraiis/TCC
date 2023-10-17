@@ -1,4 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import (
+    TemplateView, CreateView
+    )
+from .forms import CityModelForm
+from .models import City
+from django.urls import reverse_lazy
 
 
 class CityListView(TemplateView):  # trocar para ListView
@@ -7,3 +12,11 @@ class CityListView(TemplateView):  # trocar para ListView
 
 class CityDetailView(TemplateView):  # trocar para DetailView
     template_name = 'city/pages/city_detail.html'
+
+
+class CityCreateView(CreateView):
+    template_name = 'city/pages/city_insert.html'
+    form_class = CityModelForm
+    context_object_name = 'form'
+    model = City
+    success_url = reverse_lazy('core:index')

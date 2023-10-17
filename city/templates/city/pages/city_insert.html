@@ -1,0 +1,41 @@
+{% extends 'global/pages/base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Write Your Post</h4>
+            </div>
+            <form method="post" class="card-body" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              {{ form.media }}
+
+              <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name of City</label>
+                <div class="col-sm-12 col-md-7">
+                  {{ form.name }}
+                </div>
+              </div>
+              <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Disponibility</label>
+                <div class="col-sm-12 col-md-7">
+                  {{ form.bus_dispo }}
+                </div>
+              </div>
+              <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                <div class="col-sm-12 col-md-7">
+                  <button class="btn btn-primary btn-color-main">Create Post</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

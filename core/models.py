@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class PostCategory(models.Model):
@@ -14,7 +15,7 @@ class Post(models.Model):
         max_length=200
     )
     description = models.TextField()
-    content = models.TextField()
+    content = RichTextUploadingField()
     category = models.ForeignKey(
         PostCategory, on_delete=models.CASCADE
     )

@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import (IndexListView, PresentationTemplateView,
-                    simulator, about)
+from .views import (
+    IndexListView, PresentationTemplateView, SimulatorTemplateView,
+    AboutTemplateView, CreatePost)
 
 app_name = 'core'
 
@@ -13,10 +14,10 @@ urlpatterns = [
     ),
     # path('post/detalhe/', detail_news, name="detail"),
     path(
-        'simulator/', simulator, name='simulator'
+        'simulator/', SimulatorTemplateView.as_view(), name='simulator'
     ),
-    # path('post/criar', create_post),
+    path('post/criar', CreatePost.as_view(), name='create-post'),
     path(
-        'sobre/', about, name='about'
+        'sobre/', AboutTemplateView.as_view(), name='about'
     )
 ]
