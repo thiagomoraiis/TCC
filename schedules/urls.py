@@ -6,4 +6,5 @@ app_name = 'schedules'
 
 urlpatterns = [
     path('rotas/', BusRouteCreateView.as_view(), name='route-insert'),
+    # path('rotas/', BusRouteCreateView.as_view(), name='route-list'),
 ]
