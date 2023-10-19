@@ -10,16 +10,17 @@
   <form style="height: auto;" class="form-login">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row">
-      <div class="form-outline mb-3 d-flex justify-content-center flex-column">
-        <img src="{% static 'core/img/IFO-LOGO-LOGIN.svg' %}" class="m-auto py-2" alt="">
-        <h1 class="h3 text-color-main fw-700 text-center">IFÓRUM<br>ACADEMICO </h1>
+      <div class="form-outline mb-3 d-flex justify-content-center">
+        <a href="">
+          <img src="{% static 'core/img/IFO-LOGO-LOGIN.svg' %}" class="m-auto py-2" alt="">
+          <h1 class="h3 text-color-main fw-700 text-center">IFÓRUM<br>ACADEMICO </h1>
+        </a>
       </div> 
 
       <div class="col-md-6 mb-3">
         <div class="form-outline">
           <label class="form-label" for="form3Example1">First name</label>
           {{ form.first_name }}
-          {% comment %} <input type="text" id="form3Example1" class="form-control" /> {% endcomment %}
         </div>
       </div>
 
@@ -27,7 +28,6 @@
         <div class="form-outline">
           <label class="form-label" for="form3Example2">Last name</label>
           {{ form.last_name }}
-          {% comment %} <input type="text" id="form3Example2" class="form-control" /> {% endcomment %}
         </div>
       </div>
     </div>
@@ -36,14 +36,12 @@
     <div class="form-outline mb-3">
       <label class="form-label" for="form3Example3">Username</label>
       {{ form.username }}
-      {% comment %} <input type="text" id="form3Example3" class="form-control" /> {% endcomment %}
     </div>
 
     <!-- Email input -->
     <div class="form-outline mb-3">
       <label class="form-label" for="form3Example3">Email address</label>
       {{ form.email }}
-      {% comment %} <input type="email" id="form3Example3" class="form-control" /> {% endcomment %}
     </div>
 
 
@@ -52,7 +50,6 @@
         <div class="form-outline">
           <label class="form-label" for="form3Example1">Password</label>
           {{ form.password }}
-          {% comment %} <input type="password" id="form3Example1" class="form-control" /> {% endcomment %}
         </div>
       </div>
 
@@ -60,15 +57,18 @@
         <div class="form-outline">
           <label class="form-label" for="form3Example2">Confirmation</label>
           {{ form.password1 }}
-          {% comment %} <input type="password" id="form3Example2" class="form-control" /> {% endcomment %}
         </div>
       </div>
     </div>
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-color-main btn-block text-white fw-600 mb-3">
-      Sign up
+      Criar conta
     </button>
+    <div class="text-center">
+      <p>Já é usuario?<a href="{% url 'user:register' %}" class="text-decoration-none text-secondary">Faça login!</a></p>
+
+    </div>
 
   </form>
 </main>

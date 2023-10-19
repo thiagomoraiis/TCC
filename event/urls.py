@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import EventCreateView
+from .views import EventCreateView, EventDetailView
+
 
 app_name = 'event'
 
 urlpatterns = [
-    path('cadastrar/', EventCreateView.as_view(), name='')
+    path('cadastrar/', EventCreateView.as_view(), name='event_insert'),
+    path('detalhe/', EventDetailView.as_view(), name='event_detail'),
 ]
