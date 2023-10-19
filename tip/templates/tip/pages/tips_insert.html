@@ -11,35 +11,37 @@
             </div>
             <form method="post" class="card-body" enctype="multipart/form-data">
               {% csrf_token %}
+
+              {{ form.media }}
               
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Cidade de Origem</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Título</label>
                 <div class="col-sm-12 col-md-7">
-                  {{ form.origin }}
+                  {{ form.title }}
                 </div>
               </div>
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Cidade de Destino</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Descrição</label>
                 <div class="col-sm-12 col-md-7">
-                  {{ form.destiny }}
+                  {{ form.description }}
                 </div>
               </div>
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Shift</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
                 <div class="col-sm-12 col-md-7">
-                  {{ form.shift }}
+                  {{ form.content }}
                 </div>
               </div>
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Horário de chegada</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Categoria</label>
                 <div class="col-sm-12 col-md-7">
-                  {{ form.arrival_time }}
+                  {{ form.category }}
                 </div>
               </div>
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Horário de saída</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dicas Sobre</label>
                 <div class="col-sm-12 col-md-7">
-                  {{ form.departure_time }}
+                  {{ form.tip_about }}
                 </div>
               </div>
               <div class="form-group row mb-4">

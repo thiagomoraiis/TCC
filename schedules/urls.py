@@ -1,7 +1,9 @@
-from django.urls import path # noqa
+from django.urls import path
+from .views import BusRouteCreateView
+
 
 app_name = 'schedules'
 
 urlpatterns = [
-    # path()
+    path('rotas/', BusRouteCreateView.as_view(), name='route-insert'),
 ]

@@ -27,6 +27,10 @@ class CreatePost(CreateView):
     model = Tip
     success_url = reverse_lazy('core:index')
 
+    def form_valid(self, form):
+        form.instance.posted_by = self.request.user
+        return super().form_valid(form)
+
 
 class DetailPost(TemplateView):
     template_name = 'core/pages/detail_news.html'

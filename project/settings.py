@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'city',
     'contact',
     'tip',
+    'schedules',
     'event',
     'user',
 
@@ -175,3 +176,7 @@ CKEDITOR_CONFIGS = {
     },
 
 }
+
+LOGIN_REDIRECT_URL = 'core:index'
+
+LOGOUT_REDIRECT_URL = 'user:login'

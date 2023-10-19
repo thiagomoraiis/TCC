@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">  
 {% include 'global/partials/head.html' %}
-<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/style.css' %}">
 <body>
     <main style="height: 100vh; display: flex; align-items: center; justify-content: center;" class="" >
         <form style="height: auto;" class="form-login">
@@ -13,14 +13,16 @@
             </div>
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Email address</label>
-                <input type="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Username</label>
+                {{ form.username }}
+                {% comment %} <input type="email" id="form2Example1" class="form-control" /> {% endcomment %}
             </div>
         
             <!-- Password input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example2">Password</label>
-                <input type="password" id="form2Example2" class="form-control" />
+                {{ form.password }}
+                {% comment %} <input type="password" id="form2Example2" class="form-control" /> {% endcomment %}
             </div>
         
             <!-- 2 column grid layout for inline styling -->

@@ -1,7 +1,8 @@
 from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+# from django.core.exceptions import ValidationError
 
 
 class ProfileModelForm(forms.ModelForm):
@@ -11,34 +12,53 @@ class ProfileModelForm(forms.ModelForm):
             'user', 'age', 'is_student', 'city',
             'bio', 'photo'
         ]
+        widgets = {
+            'age': forms.NumberInput(
+                attrs={'class': 'form-control'}
+            ),
+            'is_student': forms.CheckboxInput(
+                attrs={'class': 'form-check-input'}
+            ),
+            'city': forms.Select(
+                attrs={'class': 'form-control selectric'}
+            ),
+            'bio': forms.TextInput(
+                attrs={'class': 'form-control'}
+            ),
+            'photo': forms.FileField(),
+        }
 
 
-class UserModelForm(forms.ModelForm):
+class UserModelForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
             'username', 'first_name', 'last_name',
-            'email', 'password'
+            'email', 'password', 'password1'
         ]
-
-    def __init__(self):
-        for field_name, field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
+            'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
         attrs={'class': 'form-control'}
     ))
 
-    def clean(self):
-        cleaned_data = super().clean()
-        self.passwords_equals_validator(cleaned_data)
-        return cleaned_data
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     self.equals_password_validator(cleaned_data)
+    #     return cleaned_data
 
-    def passwords_equals_validator(value):
-        password = value.get('password')
-        password1 = value.get('password')
-        if password != password1:
-            return ValidationError('As senhas não são iguais')
+    # def equals_password_validator(value):
+    #     password = value.get('password')
+    #     password1 = value.get('password1')
+    #     if password != password1:
+    #         return ValidationError('As senhas precisam ser iguais')
 
 
 class LoginForm(forms.Form):

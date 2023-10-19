@@ -11,3 +11,7 @@ class EventCreateView(CreateView):
     context_object_name = 'form'
     model = Event
     success_url = reverse_lazy('core:index')
+
+    def form_valid(self, form):
+        form.instance.posted_by = self.request.user
+        return super().form_valid(form)

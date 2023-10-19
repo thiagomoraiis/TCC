@@ -12,7 +12,9 @@ class BusRoute(models.Model):
     origin = models.ForeignKey(
         City, on_delete=models.CASCADE
     )
-    destiny = models.ForeignKey(City, on_delete=models.CASCADE)
+    destiny = models.CharField(
+        max_length=16, default='Pau dos Ferros'
+    )
     shift = models.CharField(
         choices=SHIFTS_CHOICES, max_length=12
     )
@@ -23,4 +25,5 @@ class BusRoute(models.Model):
     )
 
     def __str__(self):
-        return self.origem + ' - ' + self.destino
+        return self.origin + ' - ' + self.destiny
+
