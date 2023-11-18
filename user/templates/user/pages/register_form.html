@@ -8,7 +8,8 @@
 <body>
   
 <main style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-  <form style="height: auto;" class="form-login">
+  <form method="POST" style="height: auto;" class="form-login">
+    {% csrf_token %}
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row">
       <div class="form-outline mb-3 d-flex justify-content-center">
@@ -50,14 +51,14 @@
       <div class="col-md-6 mb-3">
         <div class="form-outline">
           <label class="form-label" for="form3Example1">Password</label>
-          {{ form.password }}
+          {{ form.password1 }}
         </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <div class="form-outline">
           <label class="form-label" for="form3Example2">Confirmation</label>
-          {{ form.password1 }}
+          {{ form.password2 }}
         </div>
       </div>
     </div>

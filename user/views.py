@@ -10,16 +10,17 @@ class LoginView(View):
         return render(request, 'user/pages/login_form.html', {'form': form})
 
     def post(self, request):
-        form = LoginForm(self.request.POST)
+        form = LoginForm(request.POST)
+
         if form.is_valid():
-            username = self.request.POST.get('username')
-            password = self.request.POST.get('password')
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
             user = authenticate(username=username, password=password)
 
             if user:
                 login(self.request, user)
-                redirect('core:index')
+                return redirect('core:index')
 
         return render(request, 'user/pages/login_form.html', {'form': form})
 
@@ -30,14 +31,14 @@ class RegisterView(View):
         return render(request, 'user/pages/register_form.html', {'form': form})
 
     def post(self, request):
-        form = UserModelForm(self.request.POST)
+        form = UserModelForm(request.POST)
 
         if form.is_valid():
-            user = form.save(commit=False)
+            user = form.save()
             user.is_active = True
             user.is_staff = True
             user.save()
-            return redirect('core:index')
+            return redirect('user:login')
 
         return render(request, 'user/pages/register_form.html', {'form': form})
 
