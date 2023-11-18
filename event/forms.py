@@ -22,7 +22,7 @@ class EventModelForm(forms.ModelForm):
                 attrs={'class': 'form-control selectric'}
             ),
             'date': forms.DateInput(
-                attrs={'class': 'form-control'}
+                attrs={'type': 'date', 'class': 'form-control'}
             ),
             'local': forms.TextInput(
                 attrs={'class': 'form-control'}
