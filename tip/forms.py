@@ -23,7 +23,7 @@ class TipsModelForm(forms.ModelForm):
                 attrs={'class': 'form-control selectric'}
             ),
             'content': CKEditorUploadingWidget(),
-            'tip_about': forms.TextInput(
-                attrs={'class': 'form-control'}
+            'tip_about': forms.Select(
+                attrs={'class': 'form-control selectric'}
             ),
         }
