@@ -10,7 +10,7 @@ class TipsModelForm(forms.ModelForm):
         model = Tip
         fields = [
             'title', 'description', 'content',
-            'category', 'posted_by', 'tip_about',
+            'category', 'tip_about',
         ]
         widgets = {
             'title': forms.TextInput(

@@ -16,12 +16,10 @@ class CityDetailView(TemplateView):  # trocar para DetailView
 
 class CityCreateView(CreateView):
     template_name = 'city/pages/city_insert.html'
-    context_object_name = 'form'
     form_class = CityModelForm
     model = City
     success_url = reverse_lazy('core:index')
 
     def form_valid(self, form):
-        if self.request.user.is_authenticated:
-            form.instance.posted_by = self.request.user
-            return super().form_valid(form)
+        form.instance.posted_by = self.request.user
+        return super().form_valid(form)

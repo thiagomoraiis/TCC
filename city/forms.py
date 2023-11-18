@@ -6,7 +6,7 @@ class CityModelForm(forms.ModelForm):
     class Meta:
         model = City
         fields = [
-            'name', 'bus_dispo', 'posted_by'
+            'name', 'bus_dispo',
         ]
         widgets = {
             'name': forms.TextInput(

@@ -8,7 +8,7 @@ class EventModelForm(forms.ModelForm):
         model = Event
         fields = [
             'title', 'description', 'content',
-            'category', 'posted_by', 'date', 'local'
+            'category', 'date', 'local'
         ]
         widgets = {
             'title': forms.TextInput(

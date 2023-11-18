@@ -7,7 +7,7 @@ class ContactModelForm(forms.ModelForm):
         model = Contact
         fields = [
             'sector', 'telephone', 'coordinator',
-            'email', 'posted_by'
+            'email',
         ]
         widgets = {
             'sector': forms.TextInput(attrs={'class': 'form-control'}),
