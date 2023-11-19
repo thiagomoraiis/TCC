@@ -1,13 +1,15 @@
 from django.views.generic import (
-    TemplateView, CreateView
+    ListView, CreateView
     )
 from .forms import ContactModelForm
 from .models import Contact
 from django.urls import reverse_lazy
 
 
-class ContactListView(TemplateView):
+class ContactListView(ListView):
     template_name = 'contact/pages/contacts_list.html'
+    queryset = Contact.objects.all()
+    context_object_name = 'contact'
 
 
 class ContactCreateView(CreateView):

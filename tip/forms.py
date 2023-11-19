@@ -4,7 +4,9 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 class TipsModelForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget(), required=False)
+    content = forms.CharField(
+        widget=CKEditorUploadingWidget(), required=False
+    )
 
     class Meta:
         model = Tip

@@ -7,6 +7,7 @@ class Contact(models.Model):
     telephone = models.CharField(max_length=20)
     coordinator = models.CharField(max_length=150)
     email = models.EmailField(max_length=150)
+    room = models.CharField(max_length=10)
     posted_by = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
