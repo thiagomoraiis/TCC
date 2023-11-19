@@ -4,7 +4,8 @@ from django.urls import reverse_lazy
 from tip.models import Tip
 from event.models import Event
 from django.views.generic import (
-    TemplateView, CreateView, ListView, DetailView
+    TemplateView, CreateView, ListView,
+    # DetailView
 )
 
 
@@ -59,8 +60,8 @@ class CreatePost(CreateView):
         return super().form_valid(form)
 
 
-class DetailPost(DetailView):
-    template_name = 'core/pages/detail_news.html'
-    queryset = Event.objects.all()[:4]
-    context_object_name = 'event'
-    pk_url_kwarg = 'id'
+# class DetailPost(DetailView):
+#     template_name = 'core/pages/detail_news.html'
+#     queryset = Event.objects.all()[:4]
+#     context_object_name = 'event'
+#     pk_url_kwarg = 'id'
