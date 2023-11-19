@@ -31,7 +31,7 @@ class EventDeleteView(DeleteView):
     queryset = Event.objects.all()
     context_object_name = 'event'
     pk_url_kwarg = 'id'
-    success_url = reverse_lazy('event:event_list')
+    success_url = reverse_lazy('core:index')
 
 
 class EventDetailView(DetailView):
@@ -48,4 +48,4 @@ class EventUpdateView(UpdateView):
     context_object_name = 'event'
     form_class = EventModelForm
     pk_url_kwarg = 'id'
-    success_url = reverse_lazy('event:event_list')
+    success_url = reverse_lazy('core:index')
