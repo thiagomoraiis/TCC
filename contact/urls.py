@@ -23,7 +23,7 @@ urlpatterns = [
         name='contact_delete',
     ),
     path(
-        '<int:id>/atualizar/',
+        '<int:id>/editar/',
         ContactUpdateView.as_view(),
         name='contact_update',
     )

@@ -18,6 +18,6 @@ urlpatterns = [
         'deletar/<int:id>/', EventDeleteView.as_view(), name='event_delete'
     ),
     path(
-        'atualizar/<int:id>/', EventUpdateView.as_view(), name='event_update'
+        'editar/<int:id>/', EventUpdateView.as_view(), name='event_update'
     ),
 ]

@@ -26,4 +26,3 @@ class BusRoute(models.Model):
 
     def __str__(self):
         return self.origin + ' - ' + self.destiny
-

@@ -2,8 +2,8 @@ from .forms import CityModelForm
 from .models import City
 from django.urls import reverse_lazy
 from django.views.generic import (
-        CreateView, ListView, DetailView, DeleteView, UpdateView
-    )
+    CreateView, ListView, DetailView, DeleteView, UpdateView
+)
 
 
 class CityListView(ListView):

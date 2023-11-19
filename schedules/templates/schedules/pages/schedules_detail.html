@@ -1,0 +1,29 @@
+{% extends "global/pages/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %}IFORUM: Rotas Detalhe{% endblock title %}
+{% block content %}
+<section class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="text-secondary mt-5 mb-4">Cidades Horarios</h1>
+            <div class="card shadow">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title text-secondary mb-4">Manha / Tarde / Noite</h5>
+                    {% if request.user.is_superuser %}
+                      <div class="">
+                        <a href="{% url 'schedules:schedules_update' schedules.id %}" class="text-primary">Editar</a>
+                        <a href="{% url 'schedules:schedules_delete' schedules.id %}" class="text-danger">Apagar</a>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <p class="card-text"><span class="card-title">With spporting:</span> below as a natural lead-in to additional content.</p>
+                  <p class="card-text"><span class="card-title">With spporting</span> below as a natural lead-in to additional content</p>
+                  <p class="card-text"><span class="card-title">With spporting</span> below as a natural lead-in to adding</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
