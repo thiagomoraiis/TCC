@@ -26,47 +26,25 @@
     <div class="row justify-content-around m-0 p-0">
         <h2 class="fs-4 h2 text-color-default fw-700 ps-5 my-4" style="color: #6C757D;">Noticias</h2>
         <div class="col-11 col-sm-10 col-md-8 bg-color-default h-100 mb-5 mb-lg-0">
-            
-            <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
-                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
-                <div class="ms-3 p-3" style="flex: 1;">
-                    <span>lorem</span>
-                    <h4>
-                        <a href="{% url 'event:event_detail' %}"  class="text-decoration-none text-secondary">Lorem Ipsum</a>
-                    </h4>
-                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                </div>                
-            </div>
-            <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
-                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
-                <div class="ms-3 p-3" style="flex: 1;">
-                    <span>lorem</span>
-                    <h4>
-                        <a href="{% url 'event:event_detail' %}"  class="text-decoration-none text-secondary">Lorem Ipsum</a>
-                    </h4>
-                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                </div>                
-            </div>
-            <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
-                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
-                <div class="ms-3 p-3" style="flex: 1;">
-                    <span>lorem</span>
-                    <h4>
-                        <a href="{% url 'event:event_detail' %}"  class="text-decoration-none text-secondary">Lorem Ipsum</a>
-                    </h4>
-                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                </div>                
-            </div>
-            <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
-                <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 180px;" alt="">
-                <div class="ms-3 p-3" style="flex: 1;">
-                    <span>lorem</span>
-                    <h4>
-                        <a href="{% url 'event:event_detail' %}"  class="text-decoration-none text-secondary">Lorem Ipsum</a>
-                    </h4>
-                    <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                </div>                
-            </div>
+            {% for i in event %}
+                <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
+
+                    {% for image_url in image_urls %}
+                        {% if image_url in i.content %}
+                            <img src="{{ image_url }}" width="200" height="116" alt="Imagem">
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="ms-3 p-3" style="flex: 1;">
+                        <span>{{ i.category }}</span>
+                        <h4>
+                            <a href="{% url 'event:event_detail' i.id %}"  class="text-decoration-none text-secondary">{{ i.title }}</a>
+                        </h4>
+                        <p class="mb-0">{{ i.description }}</p>
+                    </div>      
+
+                </div>
+            {% endfor %}
         </div>
 
         <div class="col-11 col-sm-10 col-md-3">
