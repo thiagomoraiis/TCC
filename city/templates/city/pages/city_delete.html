@@ -1,0 +1,19 @@
+{% extends 'global/pages/base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %}IFORUM: Cidade Listagem{% endblock title %}
+{% block content %}
+<div class="container">
+    <h1 class="text-secondary my-4">Deletar</h1>
+    <div class="row">
+        <h3 class="text-secondary mb-3">Deseja apagar "{{ city.name }}"?</h3>
+        <div class="col">
+            <form action="" method="post">
+                {% csrf_token %}
+                <a href="{% url 'city:city_detail' city.id %}" class="btn btn-primary">Voltar</a>
+                <button type="submit" class="btn btn-danger">Deletar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
