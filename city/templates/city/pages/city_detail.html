@@ -11,10 +11,12 @@
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                     <h5 class="card-title text-secondary mb-4">Manha / Tarde / Noite</h5>
-                    <div class="">
-                      <a href="{% url 'city:city_update' city.id %}" class="text-primary">Editar</a>
-                      <a href="{% url 'city:city_delete' city.id %}" class="text-danger">Apagar</a>
-                    </div>
+                    {% if request.user.is_superuser %}
+                      <div class="">
+                        <a href="{% url 'city:city_update' city.id %}" class="text-primary">Editar</a>
+                        <a href="{% url 'city:city_delete' city.id %}" class="text-danger">Apagar</a>
+                      </div>
+                    {% endif %}
                   </div>
                   <p class="card-text"><span class="card-title">With spporting:</span> below as a natural lead-in to additional content.</p>
                   <p class="card-text"><span class="card-title">With spporting</span> below as a natural lead-in to additional content</p>

@@ -1,5 +1,6 @@
 from django.views.generic import (
-    ListView, CreateView
+    ListView, CreateView,
+    DeleteView, UpdateView,
     )
 from .forms import ContactModelForm
 from .models import Contact
@@ -22,3 +23,21 @@ class ContactCreateView(CreateView):
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
         return super().form_valid(form)
+
+
+class ContactDeleteView(DeleteView):
+    template_name = 'contact/pages/contact_delete.html'
+    model = Contact
+    queryset = Contact.objects.all()
+    context_object_name = 'contact'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('contact:contact_list')
+
+
+class ContactUpdateView(UpdateView):
+    template_name = 'contact/pages/contact_insert.html'
+    queryset = Contact.objects.all()
+    context_object_name = 'contact'
+    form_class = ContactModelForm
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('contact:contact_list')
