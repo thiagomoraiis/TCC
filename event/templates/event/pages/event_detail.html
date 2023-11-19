@@ -1,12 +1,11 @@
 {% extends 'global/pages/base.html' %}
 {% load static %}
 {% load bootstrap5 %}
-{% block title %}IFORUM: Eventos Detalhe{% endblock title %}
 {% block content %}
 <section class="container pt-5">
     <div class="row">
         <div class="d-flex justify-content-between mt-4 ">
-            <h4 class="text-default fw-700">Eventos</h4>
+            <h4 class="text-default fw-700">{{ event.category }}</h4>
 
             <ul class="d-flex flex-wrap flex-lg-nowrap list-unstyled gap-3">
                 <a href="#" class="btn btn-social-icon btn-facebook mr-1 link-facebook">
@@ -23,18 +22,9 @@
                   </a>
             </ul>
         </div>
-        <span class="fw-700 text-default" style="color: #6C757D; font-size: 1.5rem;">Lorem Ipsum</span>
-
-        <h1 class="h1-md text-default fw-700 my-2" style="color: #6C757D;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</h1>
-
-        <img src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-4 img-card-round m-auto" style="width: 100%;" alt="">
-        <br>
-        <span class="my-3">Publicado em 08/07/2023</span>
-
-        <p style="color: #36344D;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Risus sed vulputate odio ut. Et tortor consequat id porta nibh. At tempor commodo ullamcorper a. Quam vulputate dignissim suspendisse in est ante. Maecenas accumsan lacus vel facilisis volutpat. In nisl nisi scelerisque eu ultrices. Tempus quam pellentesque nec nam aliquam sem et. Massa vitae tortor condimentum lacinia quis. Pharetra convallis posuere morbi leo urna molestie at elementum eu. Maecenas ultricies mi eget mauris pharetra et. Amet justo donec enim diam vulputate ut.</p>
-        <p style="color: #36344D;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Risus sed vulputate odio ut. Et tortor consequat id porta nibh. At tempor commodo ullamcorper a. Quam vulputate dignissim suspendisse in est ante. Maecenas accumsan lacus vel facilisis volutpat. In nisl nisi scelerisque eu ultrices. Tempus quam pellentesque nec nam aliquam sem et. Massa vitae tortor condimentum lacinia quis. Pharetra convallis posuere morbi leo urna molestie at elementum eu. Maecenas ultricies mi eget mauris pharetra et. Amet justo donec enim diam vulputate ut.</p>
-        <p style="color: #36344D;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Risus sed vulputate odio ut. Et tortor consequat id porta nibh. At tempor commodo ullamcorper a. Quam vulputate dignissim suspendisse in est ante. Maecenas accumsan lacus vel facilisis volutpat. In nisl nisi scelerisque eu ultrices. Tempus quam pellentesque nec nam aliquam sem et. Massa vitae tortor condimentum lacinia quis. Pharetra convallis posuere morbi leo urna molestie at elementum eu. Maecenas ultricies mi eget mauris pharetra et. Amet justo donec enim diam vulputate ut.</p>
-        <p style="color: #36344D;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Risus sed vulputate odio ut. Et tortor consequat id porta nibh. At tempor commodo ullamcorper a. Quam vulputate dignissim suspendisse in est ante. Maecenas accumsan lacus vel facilisis volutpat. In nisl nisi scelerisque eu ultrices. Tempus quam pellentesque nec nam aliquam sem et. Massa vitae tortor condimentum lacinia quis. Pharetra convallis posuere morbi leo urna molestie at elementum eu. Maecenas ultricies mi eget mauris pharetra et. Amet justo donec enim diam vulputate ut.</p>
+        <div class="col">
+            {{ event.content | safe }}
+        </div>
     </div>
     <div class="row justify-content-center justify-content-md-between">
         <h3 class="d-block fw-700 my-4 text-default">Relacionados:</h3>
@@ -72,4 +62,5 @@
         </div>
     </div>
 </section>
+<script src="{% static 'event/js/scripts.js' %}"></script>
 {% endblock %}
