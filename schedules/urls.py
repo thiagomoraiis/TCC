@@ -15,7 +15,7 @@ urlpatterns = [
         name='route_insert'
     ),
     path(
-        'rotas/<int:int>/',
+        'rotas/<int:id>/',
         SchedulesDetailView.as_view(),
         name='schedules_detail'
     ),

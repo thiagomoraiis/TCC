@@ -4,22 +4,36 @@
 {% block title %}IFORUM: Listagem Dicas{% endblock title %}
 {% block content %}
 <section class="container pt-5">
+  
     <h1 class="text-main-default">Dicas</h1>
     <div class="row justify-content-center">
       {% for i in tips %}
         <div class="col-10 col-lg-4 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+
+                {% for image_url in image_urls %}
+                  {% if image_url in i.content %}
+                      <img src="{{ image_url }}" width="348px" height="232px" alt="Imagem">
+                  {% endif %}
+                {% endfor %}
+              
                 <a href="{% url 'tips:tips_detail' i.id %}">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title mb-1">
-                  <a href="{% url 'tips:tips_detail' i.id %}" class="text-decoration-none">Title</a></h5>
-                <span class="card-subtitle">Lorem ipsum</span>
-                <p class="card-text mt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title mb-1">
+                    <a href="{% url 'tips:tips_detail' i.id %}" class="text-decoration-none">{{ i.title }}</a>
+                  </h5>
+                  <div class="d-flex">
+                    <a href="{% url 'tips:tips_update' i.id %}" class="text-primary text-decoration-none">Editar</a>
+                    <a href="{% url 'tips:tips_delete' i.id %}" class="text-danger text-decoration-none ms-2">Deletar</a>
+                  </div>
+                </div>
+                <span class="card-subtitle">{{ i.category }}</span>
+                <p class="card-text mt-2">{{ i.description }}</p>
               </div>
           </div>
         </div>

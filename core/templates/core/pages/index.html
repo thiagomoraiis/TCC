@@ -28,7 +28,6 @@
         <div class="col-11 col-sm-10 col-md-8 bg-color-default h-100 mb-5 mb-lg-0">
             {% for i in event %}
                 <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
-
                     {% for image_url in image_urls %}
                         {% if image_url in i.content %}
                             <img src="{{ image_url }}" width="200" height="116" alt="Imagem">
@@ -36,13 +35,20 @@
                     {% endfor %}
 
                     <div class="ms-3 p-3" style="flex: 1;">
-                        <span>{{ i.category }}</span>
+                        <div class="d-flex align-items-start justify-content-between">
+                            <span>{{ i.category }}</span>
+                            {% if request.user.is_superuser %}
+                                <div class="d-flex">
+                                    <a href="#" class="text-primary">Editar</a>
+                                    <a href="#" class="text-danger ms-2">Deletar</a>
+                                </div>
+                            {% endif %}
+                        </div>
                         <h4>
                             <a href="{% url 'event:event_detail' i.id %}"  class="text-decoration-none text-secondary">{{ i.title }}</a>
                         </h4>
                         <p class="mb-0">{{ i.description }}</p>
-                    </div>      
-
+                    </div> 
                 </div>
             {% endfor %}
         </div>

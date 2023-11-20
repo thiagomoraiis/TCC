@@ -24,6 +24,26 @@ class TipsListView(ListView):
     queryset = Tip.objects.all()
     context_object_name = 'tips'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        import re
+
+        image_urls = []
+
+        tips = self.get_queryset()
+
+        for tip in tips:
+            content = tip.content
+
+            matches = re.findall(r'<img .*?src="(.*?)".*?>', content)
+
+            if matches:
+                image_urls.extend(matches)
+
+        context['image_urls'] = image_urls
+        context['tips'] = tips
+        return context
+
 
 class TipsDeleteView(DeleteView):
     template_name = 'tip/pages/tips_delete.html'
@@ -43,7 +63,7 @@ class TipsDetailView(DetailView):
 
 
 class TipsUpdateView(UpdateView):
-    template_name = 'tips/pages/tip_insert.html'
+    template_name = 'tip/pages/tips_insert.html'
     queryset = Tip.objects.all()
     context_object_name = 'tips'
     form_class = TipsModelForm
