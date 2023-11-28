@@ -1,0 +1,34 @@
+# Define um grupo de servidores chamado "web"
+upstream web {
+    server django:8000;
+}
+
+# Configurações para o servidor Nginx
+server {
+    # esta configurado para ouvir na porta 80
+    listem 80;
+
+    location / {
+        # encaminha a solicitação para o grupo "web"
+        proxy_pass http://web;
+
+        # configuram alguns cabeçalhos HTTP para garantir que as informações de encaminhamento
+        # (como endereços IP do cliente) sejam passadas corretamente para o servidor Gunicorn
+        proxy_set_header X-Forwarded-For $proxy_add_x_forward_for;
+        proxy_set_header Host $host;
+
+        # desativa a alteração automática dos cabeçalhos de redirecionamento.
+        proxy_redirect off
+    }
+
+    # Esta configuração lida com solicitações estáticas para o diretório /static/ e as encaminha para o diretório real onde os arquivos estáticos da aplicação Django estão localizados
+    location /static/ {
+        alias /home/app/staticfiles/;
+    }
+    
+    # esta configuração lida com solicitações para o diretório /media/ e as encaminha para o diretório real onde os arquivos de mídia (por exemplo, uploads de usuários) estão localizados 
+    location /media/ {
+        alias /home/app/worldmath/media/;
+    }
+
+}
