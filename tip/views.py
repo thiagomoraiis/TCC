@@ -1,17 +1,19 @@
 from .models import Tip
 from .forms import TipsModelForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView, CreateView, UpdateView,
     DeleteView, DetailView
 )
 
 
-class TipsCreateView(CreateView):
+class TipsCreateView(LoginRequiredMixin, CreateView):
     template_name = 'tip/pages/tips_insert.html'
     form_class = TipsModelForm
     context_object_name = 'form'
     model = Tip
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
     def form_valid(self, form):
@@ -45,12 +47,13 @@ class TipsListView(ListView):
         return context
 
 
-class TipsDeleteView(DeleteView):
+class TipsDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'tip/pages/tips_delete.html'
     model = Tip
     queryset = Tip.objects.all()
     context_object_name = 'tips'
     pk_url_kwarg = 'id'
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
 
@@ -62,10 +65,11 @@ class TipsDetailView(DetailView):
     pk_url_kwarg = 'id'
 
 
-class TipsUpdateView(UpdateView):
+class TipsUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'tip/pages/tips_insert.html'
     queryset = Tip.objects.all()
     context_object_name = 'tips'
     form_class = TipsModelForm
     pk_url_kwarg = 'id'
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('tips:tips_list')

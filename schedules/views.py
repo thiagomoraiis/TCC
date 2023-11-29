@@ -2,12 +2,13 @@ from django.views.generic import (
     ListView, CreateView, DetailView,
     DeleteView, UpdateView
 )
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import BusRoute
 from .forms import BusRouteModelForm
 from django.urls import reverse_lazy
 
 
-class BusRouteCreateView(CreateView):
+class BusRouteCreateView(LoginRequiredMixin, CreateView):
     template_name = 'schedules/pages/schedules_insert.html'
     form_class = BusRouteModelForm
     model = BusRoute
@@ -37,12 +38,13 @@ class SchedulesListView(ListView):
         return qs
 
 
-class SchedulesDeleteView(DeleteView):
+class SchedulesDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'schedules/pages/schedules_delete.html'
     model = BusRoute
     queryset = BusRoute.objects.all()
     context_object_name = 'schedules'
     pk_url_kwarg = 'id'
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
 
@@ -51,10 +53,11 @@ class SchedulesDetailView(DetailView):
     model = BusRoute
     context_object_name = 'schedules'
     queryset = BusRoute.objects.all()
+    login_url = '/users/accounts/login/'
     pk_url_kwarg = 'id'
 
 
-class SchedulesUpdateView(UpdateView):
+class SchedulesUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'schedules/pages/schedules_insert.html'
     queryset = BusRoute.objects.all()
     context_object_name = 'schedules'

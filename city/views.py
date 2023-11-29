@@ -1,6 +1,7 @@
 from .forms import CityModelForm
 from .models import City
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
 )
@@ -31,7 +32,7 @@ class CityDetailView(DetailView):
     pk_url_kwarg = 'id'
 
 
-class CityCreateView(CreateView):
+class CityCreateView(LoginRequiredMixin, CreateView):
     template_name = 'city/pages/city_insert.html'
     form_class = CityModelForm
     model = City
@@ -42,7 +43,7 @@ class CityCreateView(CreateView):
         return super().form_valid(form)
 
 
-class CityDeleteView(DeleteView):
+class CityDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'city/pages/city_delete.html'
     model = City
     queryset = City.objects.all()
@@ -51,10 +52,11 @@ class CityDeleteView(DeleteView):
     success_url = reverse_lazy('city:city_list')
 
 
-class CityUpdateView(UpdateView):
+class CityUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'city/pages/city_insert.html'
     queryset = City.objects.all()
     context_object_name = 'city'
     form_class = CityModelForm
     pk_url_kwarg = 'id'
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('city:city_list')
