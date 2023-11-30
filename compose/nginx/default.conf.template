@@ -23,12 +23,12 @@ server {
 
     # Esta configuração lida com solicitações estáticas para o diretório /static/ e as encaminha para o diretório real onde os arquivos estáticos da aplicação Django estão localizados
     location /static/ {
-        alias /home/app/staticfiles/;
+        alias /home/app/static/;
     }
     
     # esta configuração lida com solicitações para o diretório /media/ e as encaminha para o diretório real onde os arquivos de mídia (por exemplo, uploads de usuários) estão localizados 
     location /media/ {
-        alias /home/app/worldmath/media/;
+        alias /home/app/media/;
     }
 
 }

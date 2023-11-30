@@ -71,8 +71,8 @@ RUN chown django:django ${APP_HOME}
 
 
 # RUN mkdir django:django ${APP_HOME}/staticfiles
-RUN mkdir -p ${APP_HOME}/staticfiles
-RUN chown django:django ${APP_HOME}/staticfiles
+RUN mkdir -p ${APP_HOME}/static
+RUN chown django:django ${APP_HOME}/static
 
 
 # Definindo o diretório de trabalho final

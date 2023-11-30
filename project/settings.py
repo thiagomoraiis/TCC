@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'iforum',
         'USERNAME': 'postgres',
-        'PASSWORD': '123456',
+        'PASSWORD': 'Tms.142226',
         'HOST': 'postgres',
         'PORT': '5432'
     }
@@ -147,7 +147,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'static'
-
 
 MEDIA_URL = '/media/'
 
