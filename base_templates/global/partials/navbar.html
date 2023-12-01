@@ -19,16 +19,27 @@
             <li class="nav-item">
               <a class="nav-link text-white active fw-bold" aria-current="page" href="{% url 'core:about' %}" >Sobre nós</a>
             </li>
-            {% if request.user.is_authenticated %}
-                {% if user.image %}
-                    <img src="{{ students.image.url }}" alt="">
-                {% else %}
-                    <i class="bi bi-person text-white"></i>
-                {% endif %}
-            {% else %}
-                <a href="{% url 'user:login' %}" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
-            {% endif %}
-          </ul>
+            {% comment %} {% if request.user.superuser %} {% endcomment %}
+              {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                  <span class="nav-link text-white active" aria-current="page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                    Ola, {{ request.user.username }}
+                  </span>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'user:logout' %}" class="btn btn-light fw-bold" style="color: #00B071;">Sair</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a href="{% url 'user:login' %}" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
+                </li>
+              {% endif %}
+              </ul>
+            {% comment %} {% endif %} {% endcomment %}
       </div>
     </div>
 </nav>
