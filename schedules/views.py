@@ -13,7 +13,6 @@ class BusRouteCreateView(LoginRequiredMixin, CreateView):
     form_class = BusRouteModelForm
     model = BusRoute
     success_url = reverse_lazy('core:index')
-    # context_object_name = 'form'
 
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
@@ -23,8 +22,9 @@ class BusRouteCreateView(LoginRequiredMixin, CreateView):
 
 class SchedulesListView(ListView):
     template_name = 'schedules/pages/schedules_list.html'
-    queryset = BusRoute.objects.all()
+    queryset = BusRoute.objects.all().prefetch_related('origin', 'posted_by')
     context_object_name = 'schedules'
+    paginate_by = 5
 
     def get_queryset(self):
         qs = super().get_queryset()

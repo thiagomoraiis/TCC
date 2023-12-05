@@ -11,6 +11,7 @@ class CityListView(ListView):
     template_name = 'city/pages/city_list.html'
     queryset = City.objects.all().prefetch_related('posted_by')
     context_object_name = 'city'
+    paginate_by = 5
 
     def get_queryset(self):
         qs = super().get_queryset()

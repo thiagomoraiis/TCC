@@ -12,8 +12,7 @@ from django.views.generic import (
 class IndexListView(ListView):
     template_name = 'core/pages/index.html'
     model = Event
-    # context_object_name = 'event'
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().prefetch_related('posted_by')
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)

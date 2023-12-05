@@ -10,8 +10,13 @@ from django.urls import reverse_lazy
 
 class EventListView(ListView):
     template_name = 'event/pages/events_list.html'
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().prefetch_related('posted_by')
     context_object_name = 'event'
+    paginate_by = 5
+
+    def get_queryset(self):
+        qs = super().get_queryset().order_by('-id')
+        return qs
 
 
 class EventCreateView(LoginRequiredMixin, CreateView):

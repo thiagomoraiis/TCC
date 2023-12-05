@@ -10,8 +10,13 @@ from django.urls import reverse_lazy
 
 class ContactListView(ListView):
     template_name = 'contact/pages/contacts_list.html'
-    queryset = Contact.objects.all()
+    queryset = Contact.objects.all().prefetch_related('posted_by')
     context_object_name = 'contact'
+    paginate_by = 5
+
+    def get_queryset(self):
+        qs = super().get_queryset().order_by('sector')
+        return qs
 
 
 class ContactCreateView(LoginRequiredMixin, CreateView):

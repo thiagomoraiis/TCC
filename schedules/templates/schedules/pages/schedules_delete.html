@@ -1,13 +1,13 @@
 {% extends 'global/pages/base.html' %}
 {% load static %}
 {% load bootstrap5 %}
-{% block title %}IFORUM: Apagar Evento{% endblock title %}
+{% block title %}IFORUM: Apagar Horario{% endblock title %}
 {% block content %}
 <div class="container">
     <h1 class="text-secondary my-4">Deletar</h1>
 
     <div class="row">
-        <h3 class="text-secondary mb-3">Deseja apagar a rota de "{{ schedules.origin }}"?</h3>
+        <h3 class="text-secondary mb-3">Deseja apagar o horario de "{{ schedules.origin }}"?</h3>
         <div class="col">
             <form action="" method="post">
                 {% csrf_token %}

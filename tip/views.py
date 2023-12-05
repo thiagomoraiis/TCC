@@ -23,7 +23,7 @@ class TipsCreateView(LoginRequiredMixin, CreateView):
 
 class TipsListView(ListView):
     template_name = 'tip/pages/tips_list.html'
-    queryset = Tip.objects.all()
+    queryset = Tip.objects.all().prefetch_related('posted_by')
     context_object_name = 'tips'
 
     def get_context_data(self, **kwargs):
@@ -32,7 +32,7 @@ class TipsListView(ListView):
 
         image_urls = []
 
-        tips = self.get_queryset()
+        tips = self.get_queryset().order_by('-id')
 
         for tip in tips:
             content = tip.content
