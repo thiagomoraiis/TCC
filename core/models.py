@@ -11,13 +11,17 @@ class PostCategory(models.Model):
 
 
 class Post(models.Model):
+    CATEGORY_CHOICES = (
+        ('dicas', 'Dicas'),
+        ('eventos', 'Eventos')
+    )
     title = models.CharField(
         max_length=200
     )
     description = models.TextField()
     content = RichTextUploadingField()
-    category = models.ForeignKey(
-        PostCategory, on_delete=models.CASCADE
+    category = models.CharField(
+        max_length=20, choices=CATEGORY_CHOICES
     )
     posted_by = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True

@@ -4,9 +4,10 @@ from core.models import Post
 
 class Tip(Post):
     TIP_ABOUT_CHOICES = (
-        ('option 1', 'Option 1'),
-        ('option 2', 'Option 2'),
-        ('option 3', 'Option 3'),
+        ('desempenho', 'Desempenho'),
+        ('ira', 'IRA'),
+        ('bolsas', 'Bolsas'),
+        ('cursos', 'Cursos'),
     )
     tip_about = models.CharField(
         max_length=20, choices=TIP_ABOUT_CHOICES

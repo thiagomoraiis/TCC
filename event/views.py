@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render # noqa
 from django.views.generic import (
     CreateView, ListView, DeleteView, DetailView, UpdateView
@@ -48,6 +49,31 @@ class EventDetailView(DetailView):
     context_object_name = 'event'
     queryset = Event.objects.all()
     pk_url_kwarg = 'id'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+
+        import re
+
+        image_urls = []
+
+        related = self.get_queryset().filter(category='eventos')
+
+        for rel in related:
+            content = rel.content
+
+            matches = re.findall(r'<img .*?src="(.*?)".*?>', content)
+
+            if matches:
+                image_urls.extend(matches)
+
+        context['image_urls'] = image_urls
+        context['related'] = related.order_by('-id')[:3]
+        return context
+
+        # related = self.get_queryset().filter(category='eventos')
+        # context['related'] = related.order_by('-id')[:3]
+        # return context
 
 
 class EventUpdateView(LoginRequiredMixin, UpdateView):

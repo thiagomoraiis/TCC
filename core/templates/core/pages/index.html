@@ -7,7 +7,7 @@
     <div class="row justify-content-around m-0 pt-5">
         <h1 class="h2 text-color fw-700 ps-5 my-4" style="color: #6C757D;">Home</h1>
         <div class="col-8 col-sm-3 col-md-3 col-lg-2 bg-danger col-card mb-5 rounded-5 d-flex align-items-end justify-content-start p-3 shadow">
-            <a href="{% url 'schedules:route_insert' %}" class="text-decoration-none" >
+            <a href="{% url 'schedules:schedules_list' %}" class="text-decoration-none" >
                 <h3 class="text-white fw-700 fs-3">Horarios</h3>
             </a>
         </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="row justify-content-around m-0 p-0">
-        <h2 class="fs-4 h2 text-color-default fw-700 ps-5 my-4" style="color: #6C757D;">Noticias</h2>
+        <h2 class="fs-4 h2 text-color-default fw-700 ps-5 my-4" style="color: #6C757D;">Eventos</h2>
         <div class="col-11 col-sm-10 col-md-8 bg-color-default h-100 mb-5 mb-lg-0">
             {% for i in event %}
                 <div class="my-card card-round border d-flex card-shadow mb-4 shadow-sm">
@@ -39,8 +39,8 @@
                             <span>{{ i.category }}</span>
                             {% if request.user.is_superuser %}
                                 <div class="d-flex">
-                                    <a href="#" class="text-primary">Editar</a>
-                                    <a href="#" class="text-danger ms-2">Deletar</a>
+                                    <a href="{% url 'event:event_update' i.id %}" class="text-primary">Editar</a>
+                                    <a href="{% url 'event:event_delete' i.id %}" class="text-danger ms-2">Deletar</a>
                                 </div>
                             {% endif %}
                         </div>

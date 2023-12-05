@@ -12,7 +12,7 @@ class ContactListView(ListView):
     template_name = 'contact/pages/contacts_list.html'
     queryset = Contact.objects.all().prefetch_related('posted_by')
     context_object_name = 'contact'
-    paginate_by = 5
+    paginate_by = 2
 
     def get_queryset(self):
         qs = super().get_queryset().order_by('sector')
