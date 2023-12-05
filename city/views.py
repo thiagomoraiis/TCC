@@ -36,6 +36,7 @@ class CityCreateView(LoginRequiredMixin, CreateView):
     template_name = 'city/pages/city_insert.html'
     form_class = CityModelForm
     model = City
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
     def form_valid(self, form):
@@ -49,6 +50,7 @@ class CityDeleteView(LoginRequiredMixin, DeleteView):
     queryset = City.objects.all()
     context_object_name = 'city'
     pk_url_kwarg = 'id'
+    login_url = '/users/accounts/login/'
     success_url = reverse_lazy('city:city_list')
 
 

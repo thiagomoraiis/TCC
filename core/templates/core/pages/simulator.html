@@ -12,30 +12,30 @@
             <p class="text-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
 
-        <div class="col-12 col-md-9 mb-3">
+        <div class="col-12 col-md-9 mb-3"  id="form-semester">
             <h2 class="h2 my-3 text-default">Média semestral</h2>
             <p class="text-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <form action="" class="d-flex align-items-center gap-3">
-                <input class="number1 fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
-                <input class="number1 fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
+            <form action="" method="GET" class="d-flex align-items-center gap-3" id="form-semester">
+                <input class="number1 fs-3 rounded-lg" type="number" id="two-months-1" name="two-months-1" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
+                <input class="number1 fs-3 rounded-lg" type="number" id="two-months-2" name="two-months-2" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
                 <span class="fw-800 fs-1">=</span>
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem; border: 2px solid #00b374; outline: #00b374;">
-                <div class="btn-lg btn-color-main text-white align-items-center">Calcular</div>
+                <input class="fs-3 rounded-lg" type="number" id="result1" style="width:4.5rem; height: 3rem; border: 2px solid #00b374; outline: #00b374;">
+                <button type="button" class="btn-lg btn-color-main text-white align-items-center" id="calc-average-semester">Calcular</button>
             </form>
         </div>
 
-        <div class="col-12 col-md-9 mb-3">
+        <div class="col-12 col-md-9 mb-3"  id="form-annual">
             <h2 class="h2 my-3 text-default">Média anual</h2>
             <p class="text-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <div class="d-flex align-items-center gap-3 form-group">
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
+            <form class="d-flex align-items-center gap-3 form-group">
+                <input class="fs-3 rounded-lg" type="number" id="month-1" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
+                <input class="fs-3 rounded-lg" type="number" id="month-2" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
+                <input class="fs-3 rounded-lg" type="number" id="month-3" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
+                <input class="fs-3 rounded-lg" type="number" id="month-4" style="width:4.5rem; height: 3rem;border: 2px solid #00b374;outline: #00b374;">
                 <span class="fw-800 fs-1">=</span>
-                <input class="fs-3 rounded-lg" type="number" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
-                <div class="btn-lg btn-color-main text-white align-items-center">Calcular</div>
-            </div>
+                <input class="fs-3 rounded-lg" type="number" id="result-annual" style="width:4.5rem; height: 3rem; border: 2px solid #00b374;outline: #00b374;">
+                <button type="button" class="btn-lg btn-color-main text-white align-items-center" id="calc-average-annual">Calcular</button>
+            </form>
         </div>
     </div>
 </div>
