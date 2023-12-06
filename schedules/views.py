@@ -24,7 +24,7 @@ class SchedulesListView(ListView):
     template_name = 'schedules/pages/schedules_list.html'
     queryset = BusRoute.objects.all().prefetch_related('origin', 'posted_by')
     context_object_name = 'schedules'
-    paginate_by = 1
+    paginate_by = 3
 
     def get_queryset(self):
         qs = super().get_queryset()

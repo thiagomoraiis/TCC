@@ -1,9 +1,11 @@
 {% load bootstrap5 %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">  
-{% include 'global/partials/head.html' %}
-{% block title %}IFORUM: Cadastro{% endblock title %}
+<html lang="pt-br">
+<head>
+<title>IFORUM: Login</title>
+{% include "global/partials/head.html" %}
+</head>
 <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 <body>
   
@@ -21,14 +23,14 @@
 
       <div class="col-md-6 mb-3">
         <div class="form-outline">
-          <label class="form-label" for="form3Example1">First name</label>
+          <label class="form-label" for="form3Example1">Primeiro Nome</label>
           {{ form.first_name }}
         </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <div class="form-outline">
-          <label class="form-label" for="form3Example2">Last name</label>
+          <label class="form-label" for="form3Example2">Último nome</label>
           {{ form.last_name }}
         </div>
       </div>
@@ -36,13 +38,13 @@
 
     <!-- Username input -->
     <div class="form-outline mb-3">
-      <label class="form-label" for="form3Example3">Username</label>
+      <label class="form-label" for="form3Example3">Nome de Usuário</label>
       {{ form.username }}
     </div>
 
     <!-- Email input -->
     <div class="form-outline mb-3">
-      <label class="form-label" for="form3Example3">Email address</label>
+      <label class="form-label" for="form3Example3">Endereço de Email</label>
       {{ form.email }}
     </div>
 
@@ -50,14 +52,14 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <div class="form-outline">
-          <label class="form-label" for="form3Example1">Password</label>
+          <label class="form-label" for="form3Example1">Senha</label>
           {{ form.password1 }}
         </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <div class="form-outline">
-          <label class="form-label" for="form3Example2">Confirmation</label>
+          <label class="form-label" for="form3Example2">Confirmação de senha</label>
           {{ form.password2 }}
         </div>
       </div>
@@ -68,7 +70,7 @@
       Criar conta
     </button>
     <div class="text-center">
-      <p>Já é usuario?<a href="{% url 'user:register' %}" class="text-decoration-none text-secondary">Faça login!</a></p>
+      <p>Já é usuario?<a href="{% url 'user:login' %}" class="text-decoration-none text-secondary">Faça login!</a></p>
 
     </div>
 

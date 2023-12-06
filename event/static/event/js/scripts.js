@@ -24,7 +24,7 @@ function adicionarClassesParaH(){
   var h1 = document.querySelectorAll('h1');
   var h2 = document.querySelectorAll('h2');
   var h3 = document.querySelectorAll('h3');
-  var h4 = document.querySelectorAll('h4');
+  // var h4 = document.querySelectorAll('h4');
   var h5 = document.querySelectorAll('h5');
 
   for (var i = 0; i < h1.length; i++) {
@@ -45,17 +45,17 @@ function adicionarClassesParaH(){
     }
   }
 
-  for (var i = 0; i < h4.length; i++) {
-    if ('text-white' != h4[i].classList){
-      h4[i].classList.add('text-secondary');
-    }
-  }
+  // for (var i = 0; i < h4.length; i++) {
+  //   if ('text-white' != h4[i].classList){
+  //     h4[i].classList.add('text-secondary');
+  //   }
+  // }
 
-  for (var i = 0; i < h5.length; i++) {
-    if ('text-white' != h5[i].classList){
-      h5[i].classList.add('text-secondary');
-    }
-  }
+  // for (var i = 0; i < h5.length; i++) {
+  //   if ('text-white' != h5[i].classList){
+  //     h5[i].classList.add('text-secondary');
+  //   }
+  // }
 }
 
 window.onload = function() {

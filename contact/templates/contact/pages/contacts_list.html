@@ -6,7 +6,9 @@
 <link rel="stylesheet">
 <div class="container">
     <h1 class="mt-5 mb-4" style="color: #6C757D;" >Contatos</h1>
-    <a href="{% url 'contact:contact_insert' %}" class="btn btn-success mb-3" style="background-color: #00B071;">Cadastrar</a>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'contact:contact_insert' %}" class="btn btn-success mb-3" style="background-color: #00B071;">Cadastrar</a>
+    {% endif %}
     <div class="row">
         <div class="col-10 col-lg-5">
           {% for i in contact %}

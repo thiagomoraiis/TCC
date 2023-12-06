@@ -1,16 +1,16 @@
 {% extends "global/pages/base.html" %}
 {% load static %}
 {% load bootstrap5 %}
-{% block title %}IFORUM: Detalhe Horário{% endblock title %}
+{% block title %}IFORUM: Detalhe Rota{% endblock title %}
 {% block content %}
 <section class="container">
     <div class="row">
         <div class="col-6">
-            <h1 class="text-secondary mt-5 mb-4">Cidade Horarios</h1>
+            <h1 class="text-secondary mt-5 mb-4">Rota</h1>
             <div class="card shadow">
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-                    <h5 class="card-title text-secondary mb-4">Manha / Tarde / Noite</h5>
+                    <h5 class="card-title text-secondary mb-4 text-capitalize">{{ schedules.origin }} - Turno {{ schedules.shift }}</h5>
                     {% if request.user.is_superuser %}
                       <div class="">
                         <a href="{% url 'schedules:schedules_update' schedules.id %}" class="text-primary">Editar</a>
@@ -18,9 +18,8 @@
                       </div>
                     {% endif %}
                   </div>
-                  <p class="card-text"><span class="card-title">With spporting:</span> below as a natural lead-in to additional content.</p>
-                  <p class="card-text"><span class="card-title">With spporting</span> below as a natural lead-in to additional content</p>
-                  <p class="card-text"><span class="card-title">With spporting</span> below as a natural lead-in to adding</p>
+                  <p class="card-text"><span class="card-title">Horario de Chegada: </span>{{ schedules.arrival_time }}</p>
+                  <p class="card-text"><span class="card-title">Horario de Chegada: </span>{{ schedules.departure_time }}</p>
                 </div>
               </div>
         </div>

@@ -1,5 +1,6 @@
 from typing import Any
 from tip.forms import TipsModelForm
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from tip.models import Tip
 from event.models import Event
@@ -57,6 +58,14 @@ class CreatePost(CreateView):
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
         return super().form_valid(form)
+
+
+def error404(request, exception):
+    return render(request, 'core/pages/error404.html', status=404)
+
+
+def error500(request):
+    return render(request, 'core/pages/error500.html', status=500)
 
 
 # class DetailPost(DetailView):
