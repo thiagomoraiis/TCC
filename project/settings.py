@@ -31,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:83','http://127.0.0.1:83']
 
 # Application definition
 
@@ -96,7 +97,7 @@ DATABASES = {
         'NAME': 'iforum',
         'USER': 'postgres',
         'PASSWORD': 'Tms.142226',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         # 'HOST': 'postgres',
         'PORT': '5432',
     }

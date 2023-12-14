@@ -6,7 +6,7 @@ upstream web {
 # Configurações para o servidor Nginx
 server {
     # esta configurado para ouvir na porta 80
-    listem 80;
+    listen 80;
 
     location / {
         # encaminha a solicitação para o grupo "web"
@@ -14,11 +14,11 @@ server {
 
         # configuram alguns cabeçalhos HTTP para garantir que as informações de encaminhamento
         # (como endereços IP do cliente) sejam passadas corretamente para o servidor Gunicorn
-        proxy_set_header X-Forwarded-For $proxy_add_x_forward_for;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
 
         # desativa a alteração automática dos cabeçalhos de redirecionamento.
-        proxy_redirect off
+        proxy_redirect off;
     }
 
     # Esta configuração lida com solicitações estáticas para o diretório /static/ e as encaminha para o diretório real onde os arquivos estáticos da aplicação Django estão localizados

@@ -48,7 +48,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiando os pacotes  wheels gerados no estagio de constução para o container
-COPY --from=python-build=stage /usr/src/app/wheels /wheels/
+COPY --from=python-build-stage /usr/src/app/wheels /wheels/
 
 # Instalando as dependencias do projeto a partir dos pacotes wheels
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
