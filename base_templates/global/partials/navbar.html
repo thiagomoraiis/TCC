@@ -34,9 +34,11 @@
                   <a href="{% url 'user:logout' %}" class="btn btn-light fw-bold" style="color: #00B071;">Sair</a>
                 </li>
               {% else %}
-                <li class="nav-item">
-                  <a href="{% url 'user:login' %}" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
-                </li>
+                {% if request.user.is_superuser %}
+                  <li class="nav-item">
+                    <a href="{% url 'user:login' %}" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
+                  </li>
+                {% endif %}
               {% endif %}
               </ul>
             {% comment %} {% endif %} {% endcomment %}
