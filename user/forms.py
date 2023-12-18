@@ -42,8 +42,6 @@ class UserModelForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            # 'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
-            # 'password2': forms.PasswordInput(attrs={'class': 'form-control'})
         }
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
@@ -52,18 +50,6 @@ class UserModelForm(UserCreationForm):
     password2 = forms.CharField(label='Password', widget=forms.PasswordInput(
         attrs={'class': 'form-control'}
     ))
-
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     self.equals_password_validator(cleaned_data)
-    #     return cleaned_data
-
-    # def equals_password_validator(value):
-    #     password = value.get('password')
-    #     password1 = value.get('password1')
-    #     if password != password1:
-    #         return ValidationError('As senhas precisam ser iguais')
-
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', widget=forms.TextInput(
