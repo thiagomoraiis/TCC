@@ -31,7 +31,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:83','http://127.0.0.1:83', 'https://iforum-academico.nadic.com.br']
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:83','http://127.0.0.1:83',
+    'https://iforum-academico.nadic.com.br',
+    'http://127.0.0.1:85', 'http://localhost:85'
+]
 
 # Application definition
 
