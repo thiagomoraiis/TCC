@@ -2,17 +2,20 @@ from django.views.generic import (
     ListView, CreateView, DetailView,
     DeleteView, UpdateView
 )
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import BusRoute
 from .forms import BusRouteModelForm
 from django.urls import reverse_lazy
 
 
-class BusRouteCreateView(LoginRequiredMixin, CreateView):
+class BusRouteCreateView(UserPassesTestMixin, CreateView):
     template_name = 'schedules/pages/schedules_insert.html'
     form_class = BusRouteModelForm
     model = BusRoute
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
@@ -38,7 +41,7 @@ class SchedulesListView(ListView):
         return qs
 
 
-class SchedulesDeleteView(LoginRequiredMixin, DeleteView):
+class SchedulesDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'schedules/pages/schedules_delete.html'
     model = BusRoute
     queryset = BusRoute.objects.all()
@@ -46,6 +49,9 @@ class SchedulesDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
 
 class SchedulesDetailView(DetailView):
@@ -57,10 +63,13 @@ class SchedulesDetailView(DetailView):
     pk_url_kwarg = 'id'
 
 
-class SchedulesUpdateView(LoginRequiredMixin, UpdateView):
+class SchedulesUpdateView(UserPassesTestMixin, UpdateView):
     template_name = 'schedules/pages/schedules_insert.html'
     queryset = BusRoute.objects.all()
     context_object_name = 'schedules'
     form_class = BusRouteModelForm
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('schedules:schedules_list')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 

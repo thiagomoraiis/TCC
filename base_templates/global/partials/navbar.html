@@ -19,7 +19,6 @@
             <li class="nav-item">
               <a class="nav-link text-white active fw-bold" aria-current="page" href="{% url 'core:about' %}" >Sobre nós</a>
             </li>
-            {% comment %} {% if request.user.superuser %} {% endcomment %}
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   <span class="nav-link text-white active" aria-current="page">
@@ -34,14 +33,11 @@
                   <a href="{% url 'user:logout' %}" class="btn btn-light fw-bold" style="color: #00B071;">Sair</a>
                 </li>
               {% else %}
-                {% if request.user.is_superuser %}
                   <li class="nav-item">
                     <a href="{% url 'user:login' %}" class="btn btn-light fw-bold ms-4" style="color: #00B071;">Login</a>
                   </li>
-                {% endif %}
               {% endif %}
               </ul>
-            {% comment %} {% endif %} {% endcomment %}
       </div>
     </div>
 </nav>

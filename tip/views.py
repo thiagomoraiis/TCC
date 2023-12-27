@@ -1,20 +1,23 @@
 from .models import Tip
 from .forms import TipsModelForm
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     ListView, CreateView, UpdateView,
     DeleteView, DetailView
 )
 
 
-class TipsCreateView(LoginRequiredMixin, CreateView):
+class TipsCreateView(UserPassesTestMixin, CreateView):
     template_name = 'tip/pages/tips_insert.html'
     form_class = TipsModelForm
     context_object_name = 'form'
     model = Tip
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
@@ -47,7 +50,7 @@ class TipsListView(ListView):
         return context
 
 
-class TipsDeleteView(LoginRequiredMixin, DeleteView):
+class TipsDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'tip/pages/tips_delete.html'
     model = Tip
     queryset = Tip.objects.all()
@@ -55,6 +58,9 @@ class TipsDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
 
 class TipsDetailView(DetailView):
@@ -65,7 +71,7 @@ class TipsDetailView(DetailView):
     pk_url_kwarg = 'id'
 
 
-class TipsUpdateView(LoginRequiredMixin, UpdateView):
+class TipsUpdateView(UserPassesTestMixin, UpdateView):
     template_name = 'tip/pages/tips_insert.html'
     queryset = Tip.objects.all()
     context_object_name = 'tips'
@@ -73,3 +79,6 @@ class TipsUpdateView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('tips:tips_list')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 

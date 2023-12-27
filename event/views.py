@@ -3,7 +3,7 @@ from django.shortcuts import render # noqa
 from django.views.generic import (
     CreateView, ListView, DeleteView, DetailView, UpdateView
 )
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import EventModelForm
 from .models import Event
 from django.urls import reverse_lazy
@@ -20,7 +20,7 @@ class EventListView(ListView):
         return qs
 
 
-class EventCreateView(LoginRequiredMixin, CreateView):
+class EventCreateView(UserPassesTestMixin, CreateView):
     template_name = 'event/pages/event_insert.html'
     form_class = EventModelForm
     context_object_name = 'form'
@@ -28,12 +28,15 @@ class EventCreateView(LoginRequiredMixin, CreateView):
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
+
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
         return super().form_valid(form)
 
 
-class EventDeleteView(LoginRequiredMixin, DeleteView):
+class EventDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'event/pages/event_delete.html'
     model = Event
     queryset = Event.objects.all()
@@ -41,6 +44,9 @@ class EventDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser
 
 
 class EventDetailView(DetailView):
@@ -71,12 +77,8 @@ class EventDetailView(DetailView):
         context['related'] = related.order_by('-id')[:3]
         return context
 
-        # related = self.get_queryset().filter(category='eventos')
-        # context['related'] = related.order_by('-id')[:3]
-        # return context
 
-
-class EventUpdateView(LoginRequiredMixin, UpdateView):
+class EventUpdateView(UserPassesTestMixin, UpdateView):
     template_name = 'event/pages/event_insert.html'
     queryset = Event.objects.all()
     context_object_name = 'event'
@@ -84,3 +86,6 @@ class EventUpdateView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 

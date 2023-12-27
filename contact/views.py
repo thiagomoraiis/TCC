@@ -3,7 +3,7 @@ from django.views.generic import (
     DeleteView, UpdateView,
     )
 from .forms import ContactModelForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Contact
 from django.urls import reverse_lazy
 
@@ -19,7 +19,7 @@ class ContactListView(ListView):
         return qs
 
 
-class ContactCreateView(LoginRequiredMixin, CreateView):
+class ContactCreateView(UserPassesTestMixin, CreateView):
     template_name = 'contact/pages/contact_insert.html'
     form_class = ContactModelForm
     context_object_name = 'form'
@@ -27,12 +27,15 @@ class ContactCreateView(LoginRequiredMixin, CreateView):
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
+
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
         return super().form_valid(form)
 
 
-class ContactDeleteView(LoginRequiredMixin, DeleteView):
+class ContactDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'contact/pages/contact_delete.html'
     model = Contact
     queryset = Contact.objects.all()
@@ -41,8 +44,11 @@ class ContactDeleteView(LoginRequiredMixin, DeleteView):
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('contact:contact_list')
 
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
-class ContactUpdateView(LoginRequiredMixin, UpdateView):
+
+class ContactUpdateView(UserPassesTestMixin, UpdateView):
     template_name = 'contact/pages/contact_insert.html'
     queryset = Contact.objects.all()
     context_object_name = 'contact'
@@ -50,3 +56,6 @@ class ContactUpdateView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('contact:contact_list')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 

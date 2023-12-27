@@ -6,7 +6,7 @@
 <link rel="stylesheet">
 <div class="container">
     <h1 class="mt-5 mb-4" style="color: #6C757D;" >Contatos</h1>
-    {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated and request.user.is_superuser %}
       <a href="{% url 'contact:contact_insert' %}" class="btn btn-success mb-3" style="background-color: #00B071;">Cadastrar</a>
     {% endif %}
     <div class="row">

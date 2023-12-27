@@ -37,7 +37,7 @@
                     <div class="ms-3 p-3" style="flex: 1;">
                         <div class="d-flex align-items-start justify-content-between">
                             <span>{{ i.category }}</span>
-                            {% if request.user.is_superuser %}
+                            {% if request.user.is_authenticated and request.user.is_superuser %}
                                 <div class="d-flex">
                                     <a href="{% url 'event:event_update' i.id %}" class="text-primary">Editar</a>
                                     <a href="{% url 'event:event_delete' i.id %}" class="text-danger ms-2">Deletar</a>
@@ -63,7 +63,7 @@
                   </svg> {% endcomment %}
             </div>
 
-            {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated and request.user.is_superuser %}
                 <div class="bg-success border mb-3 card-round text-white d-flex justify-content-center align-items-center" style="height: 80px;">
                     <a href="{% url 'event:event_insert' %}" class="text-white nav-link">
                         <h3 class="fw-700 fs-3 m-0" style="font-size: 1.5rem;">Eventos</h3>

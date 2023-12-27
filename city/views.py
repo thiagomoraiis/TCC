@@ -1,7 +1,7 @@
 from .forms import CityModelForm
 from .models import City
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
 )
@@ -33,19 +33,22 @@ class CityDetailView(DetailView):
     pk_url_kwarg = 'id'
 
 
-class CityCreateView(LoginRequiredMixin, CreateView):
+class CityCreateView(UserPassesTestMixin, CreateView):
     template_name = 'city/pages/city_insert.html'
     form_class = CityModelForm
     model = City
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
+
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
         return super().form_valid(form)
 
 
-class CityDeleteView(LoginRequiredMixin, DeleteView):
+class CityDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'city/pages/city_delete.html'
     model = City
     queryset = City.objects.all()
@@ -54,8 +57,11 @@ class CityDeleteView(LoginRequiredMixin, DeleteView):
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('city:city_list')
 
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 
 
-class CityUpdateView(LoginRequiredMixin, UpdateView):
+
+class CityUpdateView(UserPassesTestMixin, UpdateView):
     template_name = 'city/pages/city_insert.html'
     queryset = City.objects.all()
     context_object_name = 'city'
@@ -63,3 +69,6 @@ class CityUpdateView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('city:city_list')
+
+    def test_func(self) -> bool | None:
+        return self.request.user.is_superuser 

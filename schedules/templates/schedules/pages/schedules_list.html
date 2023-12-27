@@ -18,11 +18,11 @@
                             <h4 class="ms-3" style="color: #6C757D;" ><a href="{% url 'schedules:schedules_detail' i.id %}">{{ i.origin }}</a></h4>
                             <span class="ms-3 text-capitalize">Turno: {{ i.shift }}</span>
                         </div>
-                        {% if request.user.is_superuser %}
-                        <div class="">
-                            <a href="{% url 'schedules:schedules_update' i.id %}" class="text-primary">Editar</a>
-                            <a href="{% url 'schedules:schedules_delete' i.id %}" class="text-danger">Apagar</a>
-                        </div>
+                        {% if request.user.is_authenticated and request.user.is_superuser %}
+                          <div class="">
+                              <a href="{% url 'schedules:schedules_update' i.id %}" class="text-primary">Editar</a>
+                              <a href="{% url 'schedules:schedules_delete' i.id %}" class="text-danger">Apagar</a>
+                          </div>
                         {% endif %}
                     </div>
                 </div>
