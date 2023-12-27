@@ -9,7 +9,16 @@
 </head>
 <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
 <body>
-    <main style="height: 100vh; display: flex; align-items: center; justify-content: center;" class="" >
+    <main class="h-100 d-flex align-items-center justify-content-center flex-column" >
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <form method="POST" style="height: auto;" class="form-login">
             {% csrf_token %}
 
@@ -37,7 +46,7 @@
         
             <div class="col">
                 <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
+                <a href="#!">Esqueceu sua senha?</a>
             </div>
             </div>
         

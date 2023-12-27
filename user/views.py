@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from .forms import UserModelForm, LoginForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 
 
 class LoginView(View):
@@ -16,12 +17,15 @@ class LoginView(View):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
 
-
             user = authenticate(username=username, password=password)
 
-            if user:
-                login(self.request, user)
-                return redirect('core:index')
+            if user and user.is_active:
+                login(request, user)
+
+                next_url = request.GET.get('next', 'core:index')
+                return redirect(next_url)
+            else:
+                messages.error(request, 'Credenciais inválidas. Por favor, tente novamente.')
 
         return render(request, 'user/pages/login_form.html', {'form': form})
 
@@ -37,8 +41,6 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             user.is_active = True
-            user.is_staff = True
-            user.is_superuser = True
             user.save()
             return redirect('user:login')
 
