@@ -13,7 +13,7 @@ from django.views.generic import (
 class IndexListView(ListView):
     template_name = 'core/pages/index.html'
     model = Event
-    queryset = Event.objects.all().prefetch_related('posted_by')
+    queryset = Event.objects.all().prefetch_related('posted_by')[:3]
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -47,29 +47,9 @@ class SimulatorTemplateView(TemplateView):
 class AboutTemplateView(TemplateView):
     template_name = 'core/pages/about.html'
 
-
-class CreatePost(CreateView):
-    template_name = 'core/pages/create_post.html'
-    form_class = TipsModelForm
-    context_object_name = 'form'
-    model = Tip
-    success_url = reverse_lazy('core:index')
-
-    def form_valid(self, form):
-        form.instance.posted_by = self.request.user
-        return super().form_valid(form)
-
-
 def error404(request, exception):
     return render(request, 'core/pages/error404.html', status=404)
 
 
 def error500(request):
     return render(request, 'core/pages/error500.html', status=500)
-
-
-# class DetailPost(DetailView):
-#     template_name = 'core/pages/detail_news.html'
-#     queryset = Event.objects.all()[:4]
-#     context_object_name = 'event'
-#     pk_url_kwarg = 'id'
