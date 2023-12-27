@@ -102,13 +102,9 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Tms.142226',
         'HOST': 'postgres',
-        # 'HOST': 'postgres',
+        # 'HOST': 'localhost',
         'PORT': '5432',
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 
