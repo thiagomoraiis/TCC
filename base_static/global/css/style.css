@@ -179,7 +179,8 @@ nav{
     width:3.8rem; height: 3rem !important;
 }
 input[type="number"]{
-    width:3.8rem; height: 3rem !important;
+    width:3.8rem;
+    height: 3rem !important;
 }
 .image-preview, #callback-preview {
     width: 250px;
