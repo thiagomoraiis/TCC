@@ -42,8 +42,7 @@ function calcAverageSemester() {
 
   removeExistingParagraph(formSemester);
 
-  const result = valueRequired - media;
-  console.log(result)
+  const result = (valueRequired * (weightSemesterOne + weightSemesterTwo)) - (media * (weightSemesterOne + weightSemesterTwo));
   displayResultMessage(formSemester, result, valueRequired, media);
 }
 
@@ -92,12 +91,14 @@ function calcAverageAnnual() {
 
   const formAnnual = document.querySelector('#form-annual');
 
+  // Considerar peso 3 nas notas que faltam
   const media = calculateMediaAnnual(monthOne, monthTwo, monthTree, monthFour, weightSemesterOne, weightSemesterTwo);
   updateResultMediaAnnual(resultAnnual, media);
 
   removeExistingParagraphMediaAnnual(formAnnual);
 
-  const result = valueRequired - media;
+  // Considerar peso 3 nas notas que faltam
+  const result = (valueRequired * (weightSemesterOne * 2 + weightSemesterTwo * 2)) - (media * (weightSemesterOne * 2 + weightSemesterTwo * 2));
   displayResultMessageMediaAnnual(formAnnual, result, valueRequired, media);
 }
 
