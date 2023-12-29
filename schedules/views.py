@@ -14,7 +14,7 @@ class BusRouteCreateView(UserPassesTestMixin, CreateView):
     model = BusRoute
     success_url = reverse_lazy('core:index')
 
-    def test_func(self) -> bool | None:
+    def test_func(self):
         return self.request.user.is_superuser 
 
     def form_valid(self, form):
@@ -50,7 +50,7 @@ class SchedulesDeleteView(UserPassesTestMixin, DeleteView):
     login_url = '/users/accounts/login/'
     success_url = reverse_lazy('core:index')
 
-    def test_func(self) -> bool | None:
+    def test_func(self):
         return self.request.user.is_superuser 
 
 
@@ -71,5 +71,5 @@ class SchedulesUpdateView(UserPassesTestMixin, UpdateView):
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('schedules:schedules_list')
 
-    def test_func(self) -> bool | None:
+    def test_func(self):
         return self.request.user.is_superuser 
