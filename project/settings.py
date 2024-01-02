@@ -15,6 +15,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -95,24 +96,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'iforum',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Tms.142226',
-#         'HOST': 'postgres',
-#         # 'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'iforum',
+        'USER': 'postgres',
+        'PASSWORD': 'Tms.142226',
+        'HOST': 'postgres',
+        # 'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -194,17 +195,23 @@ CKEDITOR_CONFIGS = {
 
 LOGIN_REDIRECT_URL = 'core:index'
 
+LOGIN_URL = 'user:login'
+
 LOGOUT_REDIRECT_URL = 'user:login'
 
-DEFAULT_FROM_EMAIL = 'thiagomorais2605@gmail.com'
+# DEFAULT_FROM_EMAIL = 'thiagomorais2605@gmail.com'
 
 # if DEBUG:
 #     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # else:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
-EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True'
+
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

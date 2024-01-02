@@ -1,15 +1,13 @@
 from typing import Any
-from tip.forms import TipsModelForm
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from tip.models import Tip
 from event.models import Event
-from .forms import EmailForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.views.generic import (
     TemplateView, CreateView, ListView, View
-    # DetailView
 )
 
 
@@ -39,33 +37,37 @@ class IndexListView(ListView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class PresentationTemplateView(View):
     template_name = 'core/pages/presentation.html'
 
+    @method_decorator(login_required, name='post')
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
+        return render(request, self.template_name)
 
-    def post(self, request):
-        form = EmailForm(request.POST)
+    def post(self, request, *args, **kwargs):
+        subject = self.request.POST.get('subject')
+        message = self.request.POST.get('message')
+        email = self.request.POST.get('email')
+        admin_email = 't.morais@escolar.ifrn.edu.br'
 
-        if form.is_valid():
-            subject = form.cleaned_data.get('subject', '')
-            message = form.cleaned_data.get('message', '')
-            email = form.cleaned_data.get('email', '')
-
-            admin_email = 'thiagomorais2605@gmail.com'
-
+        try:
             send_mail(
                 subject,
-                f'Mensagem para {email}:\n\n{message}',
+                message,
                 email,
                 [admin_email],
                 fail_silently=False,
             )
-
+            messages.success(request, 'E-mail enviado com sucesso!')
             return HttpResponseRedirect('/')
-        
-        return self.render_to_response({'form': form})
+
+        except Exception as e:
+            messages.error(request, 'Erro ao enviar o formulário')
+            return HttpResponseRedirect('/apresentacao')
 
 
 class SimulatorTemplateView(TemplateView):
