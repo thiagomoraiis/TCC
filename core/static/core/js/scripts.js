@@ -21,7 +21,7 @@ function removeExistingParagraph(containerElement) {
 }
 
 function displayResultMessage(formSemester, result, valueRequired, media) {
-  const paragraph = createParagraph(media >= valueRequired ? 'Você atingiu a nota necessária' : `Você precisa de ${result.toFixed(2)} para atingir a média`);
+  const paragraph = createParagraph(media >= valueRequired ? 'Você atingiu a nota necessária' : `Você precisa de ${Math.ceil(result.toFixed(2))} nos bimestres restantes para atingir a média`);
   formSemester.appendChild(paragraph);
 }
 
@@ -42,7 +42,7 @@ function calcAverageSemester() {
 
   removeExistingParagraph(formSemester);
 
-  const result = (valueRequired * (weightSemesterOne + weightSemesterTwo)) - (media * (weightSemesterOne + weightSemesterTwo));
+  const result = ((valueRequired * (weightSemesterOne + weightSemesterTwo)) - (media * (weightSemesterOne + weightSemesterTwo))) / 5;
   displayResultMessage(formSemester, result, valueRequired, media);
 }
 
@@ -73,7 +73,7 @@ function removeExistingParagraphMediaAnnual(containerElement) {
 }
 
 function displayResultMessageMediaAnnual(formSemester, result, valueRequired, media) {
-  const paragraph = createParagraphMediaAnnual(media >= valueRequired ? 'Você atingiu a nota necessária' : `Você precisa de ${result.toFixed(2)} para atingir a média`);
+  const paragraph = createParagraphMediaAnnual(media >= valueRequired ? 'Você atingiu a nota necessária' : `Você precisa de ${Math.ceil(result.toFixed(2))} nos bimestres restantes para atingir a média`);
   formSemester.appendChild(paragraph);
 }
 
@@ -98,7 +98,7 @@ function calcAverageAnnual() {
   removeExistingParagraphMediaAnnual(formAnnual);
 
   // Considerar peso 3 nas notas que faltam
-  const result = (valueRequired * (weightSemesterOne * 2 + weightSemesterTwo * 2)) - (media * (weightSemesterOne * 2 + weightSemesterTwo * 2));
+  const result = ((valueRequired * (weightSemesterOne * 2 + weightSemesterTwo * 2)) - (media * (weightSemesterOne * 2 + weightSemesterTwo * 2))) / 10;
   displayResultMessageMediaAnnual(formAnnual, result, valueRequired, media);
 }
 
